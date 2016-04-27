@@ -236,7 +236,7 @@ function create_config( )
     "sp"
 	
     },
-    sudo_users = {190840223,212397342},--Sudo users
+    sudo_users = {190840223},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[Teleseed v4
 An advanced administration bot based on TG-CLI written in Lua
