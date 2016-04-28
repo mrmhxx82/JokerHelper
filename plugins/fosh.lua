@@ -13,7 +13,7 @@ local function run(msg, matches)
     local chat = get_receiver(msg)
     local user = "user#id"..msg.from.id
     if lock_fosh == "yes" then
-        send_large_msg(chat, 'Sick Out Group !')
+        send_large_msg(chat, 'Because of intense vilification fired !')
         chat_del_user(chat, user, ok_cb, true)
     end
 end
