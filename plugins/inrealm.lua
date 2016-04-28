@@ -1,5 +1,3 @@
--- data saved to moderation.json
--- check moderation plugin
 do
 
 local function create_group(msg)
@@ -1045,8 +1043,8 @@ end
 
 return {
   patterns = {
-    "^[#!/](creategp) (.*)$",
-	"^[#!/](createsgp) (.*)$",
+    "^[#!/](creategroup) (.*)$",
+	"^[#!/](createsuper) (.*)$",
     "^[#!/](createrealm) (.*)$",
     "^[#!/](setabout) (%d+) (.*)$",
     "^[#!/](setrules) (%d+) (.*)$",
