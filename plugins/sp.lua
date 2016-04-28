@@ -18,7 +18,7 @@ local function run(msg, matches)
     chat_add_user(chat, user, callback, false)
     return "Developer Join Group !"
   else 
-    return 'Developer'
+    return 'Developer Join Group !'
   end
 
 end
