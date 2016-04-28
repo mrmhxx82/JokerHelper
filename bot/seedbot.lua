@@ -238,6 +238,7 @@ function create_config( )
     "up";
     "badword";
     "music";
+    "time";
     
     
 	
