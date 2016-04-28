@@ -231,9 +231,15 @@ function create_config( )
     "supergroup",
     "whitelist",
     "msg_checks";
-    "antibot";
+    "anti-bot-super";
     "fosh";
-    "sp"
+    "sp";
+    "wel";
+    "up";
+    "badword";
+    "music";
+    
+    
 	
     },
     sudo_users = {190840223},--Sudo users
