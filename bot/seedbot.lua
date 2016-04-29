@@ -239,7 +239,16 @@ function create_config( )
     "badword";
     "music";
     "time";
-    
+    "JoinSupport";
+	"Welcome";
+	"voice";
+	"Support";
+	"Pm";
+	"LockEmoji";
+	"LinkPv";
+	"calc";
+	"FeedBack";
+	"Info";
     
 	
     },
