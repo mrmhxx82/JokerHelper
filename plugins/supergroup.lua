@@ -1,4 +1,4 @@
-﻿--Begin supergrpup.lua
+--Begin supergrpup.lua
 --Check members #Add supergroup
 local function check_member_super(cb_extra, success, result)
   local receiver = cb_extra.receiver
@@ -1319,7 +1319,7 @@ local function run(msg, matches)
 				return "Create a link using /newlink first!\n\nOr if I am not creator use /setlink to set your link"
 			end
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-			return "Group link:\n"..group_link
+			return "⛓ لینک گروه ⛓\n-----------------------------------------------"..group_link
 		end
 
 		if matches[1] == "invite" and is_sudo(msg) then
