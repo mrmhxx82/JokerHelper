@@ -1533,7 +1533,7 @@ end
 if msg.to.type == 'chat' then
     if matches[1] == 'newlink' and not is_realm(msg) then
       if not is_momod(msg) then
-        return "For moderators only!"
+        return "⛔️ شما دسترسی ندارید ⛔️"
       end
       local function callback (extra , success, result)
         local receiver = 'chat#'..msg.to.id
@@ -1550,18 +1550,18 @@ if msg.to.type == 'chat' then
     end
     if matches[1] == 'link' then
       if not is_momod(msg) then
-        return "For moderators only!"
+        return "⛔️ شما دسترسی ندارید ⛔️"
       end
       local group_link = data[tostring(msg.to.id)]['settings']['set_link']
       if not group_link then
-        return "Create a link using /newlink first !"
+        return "➕ اول با دستور /newlink یک لینک جدید بسازید ➕"
       end
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-      return "Group link:\n"..group_link
+      return "⛓ لینک گروه ⛓\n-----------------------------------------------"..group_link
     end
     if matches[1] == 'setowner' and matches[2] then
       if not is_owner(msg) then
-        return "For owner only!"
+        return "⛔️ شما دسترسی ندارید ⛔️"
       end
       data[tostring(msg.to.id)]['set_owner'] = matches[2]
       save_data(_config.moderation.data, data)
@@ -1571,7 +1571,7 @@ if msg.to.type == 'chat' then
     end
     if matches[1] == 'setowner' and not matches[2] then
       if not is_owner(msg) then
-        return "only for the owner!"
+        return "⛔️ شما دسترسی ندارید ⛔️"
       end
       if type(msg.reply_id)~="nil" then
           msgr = get_message(msg.reply_id, setowner_by_reply, false)
@@ -1589,7 +1589,7 @@ end
     if matches[1] == 'setgpowner' then
       local receiver = "chat#id"..matches[2]
       if not is_admin1(msg) then
-        return "For admins only!"
+        return "⛔️ شما دسترسی ندارید ⛔️"
       end
       data[tostring(matches[2])]['set_owner'] = matches[3]
       save_data(_config.moderation.data, data)
@@ -1599,7 +1599,7 @@ end
     end
     if matches[1] == 'setflood' then
       if not is_momod(msg) then
-        return "For moderators only!"
+        return "⛔️ شما دسترسی ندارید ⛔️"
       end
       if tonumber(matches[2]) < 5 or tonumber(matches[2]) > 20 then
         return "Wrong number,range is [5-20]"
