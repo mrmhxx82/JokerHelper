@@ -5,7 +5,7 @@ do
     local name_log = user_print_name(msg.from)
         if matches[1] == 'joinsupport' then
         local group_link = data[tostring(support)]['settings']['set_link']
-    return "Joker Anti Spam Support:\n"..group_link
+    return "⭕️ لینک ساپورت جوکر بات:\n"..group_link
     end
 end
 return {
