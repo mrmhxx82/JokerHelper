@@ -10,7 +10,7 @@ function run(msg, matches)
        if not group_link then 
         return "➕ اول با دستور /newlink یک لینک جدید بسازید ➕"
        end
-         local text = "SuperGroup link  :\n"..group_link
+         local text = "🔘 لینک سوپر گروه   :\n"..group_link
           send_large_msg('user#id'..msg.from.id, text.."\n", ok_cb, false)
            return "✅ لینک گروه در چت خصوصی ارسال شد ✅"
 end
