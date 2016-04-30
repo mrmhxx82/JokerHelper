@@ -251,6 +251,7 @@ function create_config( )
 	"Info";
 	"update";
 	"rempm";
+	"JoinSupport";
     
 	
     },
