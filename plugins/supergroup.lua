@@ -1112,7 +1112,7 @@ local function run(msg, matches)
 			if not is_admin1(msg) then
 				return
 			end
-			return "Already a SuperGroup"
+			return "⚫️ گروه سوپر است ⚫️"
 		end
 	end
 	if msg.to.type == 'channel' then
@@ -1268,7 +1268,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return "SuperGroup ID for " ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n"..msg.to.id
+				return "🆔 ایدی سوپر گروه 🆔" ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n"..msg.to.id
 			end
 		end
 
@@ -1287,7 +1287,7 @@ local function run(msg, matches)
 					data[tostring(msg.to.id)]['settings']['set_link'] = nil
 					save_data(_config.moderation.data, data)
 				else
-					send_large_msg(receiver, "Created a new link")
+					send_large_msg(receiver, "⛓ لینک جدید برای گروه ساخته شد ⛓")
 					data[tostring(msg.to.id)]['settings']['set_link'] = result
 					save_data(_config.moderation.data, data)
 				end
@@ -1299,14 +1299,14 @@ local function run(msg, matches)
 		if matches[1] == 'setlink' and is_owner(msg) then
 			data[tostring(msg.to.id)]['settings']['set_link'] = 'waiting'
 			save_data(_config.moderation.data, data)
-			return 'Please send the new group link now'
+			return '📨 لطفا لینک جدید را ارسال کنید 📨'
 		end
 
 		if msg.text then
 			if msg.text:match("^(https://telegram.me/joinchat/%S+)$") and data[tostring(msg.to.id)]['settings']['set_link'] == 'waiting' and is_owner(msg) then
 				data[tostring(msg.to.id)]['settings']['set_link'] = msg.text
 				save_data(_config.moderation.data, data)
-				return "New link set"
+				return "لینک برای گروه ✅"..msg.to.print_name.."✅ تنظیم شد"
 			end
 		end
 
@@ -1316,10 +1316,10 @@ local function run(msg, matches)
 			end
 			local group_link = data[tostring(msg.to.id)]['settings']['set_link']
 			if not group_link then
-				return "💢 اول یک لینک جدید با دستور /newlink بسازید 💢\n🌀 یا یک با دستور /setlink لیک لینک برای گروه تنظیم کنید 🌀"
+				return "💢 اول یک لینک جدید با دستور newlink/ بسازید  💢\n🌀 یا با دستور setlink/ یک لینک برای گروه تنظیم کنید  🌀"
 			end
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-			return "لینک گروه:"..msg.to.print_name.."\n-----------------------------------------"..group_link
+			return ">لینک گروه :"..msg.to.print_name.."\n-----------------------------------------"..group_link
 		end
 
 		if matches[1] == "invite" and is_sudo(msg) then
@@ -1926,7 +1926,7 @@ local function run(msg, matches)
 				elseif is_owner(msg) then
 					mute_user(chat_id, user_id)
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] added ["..user_id.."] to the muted users list")
-					return "["..user_id.."] added to the muted user list"
+					return "☢ ["..user_id.."] ☢به لیست بی صدا ها افزوده شد"
 				end
 			elseif matches[1] == "muteuser" and matches[2] and not string.match(matches[2], '^%d+$') then
 				local receiver = get_receiver(msg)
@@ -1964,7 +1964,7 @@ local function run(msg, matches)
 		end
 
 		if matches[1] == 'help' and not is_owner(msg) then
-			text = "Message /superhelp to @Teleseed in private for SuperGroup help"
+			text = "🌀 دستور superhelp/ را به jokeranti@ برای دریافت راهنمایی به صورت شخصی ارسال کنید 🌀"
 			reply_msg(msg.id, text, ok_cb, false)
 		elseif matches[1] == 'help' and is_owner(msg) then
 			local name_log = user_print_name(msg.from)
