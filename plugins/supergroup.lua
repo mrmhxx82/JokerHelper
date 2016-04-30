@@ -1316,10 +1316,10 @@ local function run(msg, matches)
 			end
 			local group_link = data[tostring(msg.to.id)]['settings']['set_link']
 			if not group_link then
-				return "Create a link using /newlink first!\n\nOr if I am not creator use /setlink to set your link"
+				return "💢 اول یک لینک جدید با دستور /newlink بسازید 💢\n🌀 یا یک با دستور /setlink لیک لینک برای گروه تنظیم کنید 🌀"
 			end
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-			return "⛓ لینک گروه ⛓\n-----------------------------------------------"..group_link
+			return "لینک گروه:"..msg.to.print_name.."\n-----------------------------------------"..group_link
 		end
 
 		if matches[1] == "invite" and is_sudo(msg) then
