@@ -249,6 +249,7 @@ function create_config( )
 	"calc";
 	"FeedBack";
 	"Info";
+	"update";
     
 	
     },
