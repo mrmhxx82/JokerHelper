@@ -250,6 +250,7 @@ function create_config( )
 	"FeedBack";
 	"Info";
 	"update";
+	"rempm";
     
 	
     },
