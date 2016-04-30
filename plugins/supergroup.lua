@@ -1925,7 +1925,7 @@ local function run(msg, matches)
 					return "["..user_id.."] removed from the muted users list"
 				elseif is_owner(msg) then
 					mute_user(chat_id, user_id)
-					savelog(msg.to.id, name_log.." ["..msg.from.id.."] added ["..user_id.."] to the muted users list")
+					savelog(msg.to.id, name_log.."☢ ["..msg.from.id.."] به ["..user_id.."] لیست بی صدا ها افزوده شد ☢")
 					return "☢ ["..user_id.."] ☢به لیست بی صدا ها افزوده شد"
 				end
 			elseif matches[1] == "muteuser" and matches[2] and not string.match(matches[2], '^%d+$') then
