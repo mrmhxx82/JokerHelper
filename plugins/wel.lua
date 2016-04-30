@@ -1,158 +1,103 @@
+local add_user_cfg = load_from_file('data/add_user_cfg.lua')
+
+local function template_add_user(base, to_username, from_username, chat_name, chat_id)
+   base = base or ''
+   to_username = '@' .. (to_username or '')
+   from_username = '@' .. (from_username or '')
+   chat_name = string.gsub(chat_name, '_', ' ') or ''
+   chat_id = "chat#id" .. (chat_id or '')
+   if to_username == "@" then
+      to_username = ''
+   end
+   if from_username == "@" then
+      from_username = ''
+   end
+   base = string.gsub(base, "{to_username}", to_username)
+   base = string.gsub(base, "{from_username}", from_username)
+   base = string.gsub(base, "{chat_name}", chat_name)
+   base = string.gsub(base, "{chat_id}", chat_id)
+   return base
+end
+
+function chat_new_user_link(msg)
+   local pattern = add_user_cfg.initial_chat_msg
+   local to_username = msg.from.username
+   local from_username = 'link (@' .. (msg.action.link_issuer.username or '') .. ')'
+   local chat_name = msg.to.print_name
+   local chat_id = msg.to.id
+   pattern = template_add_user(pattern, to_username, from_username, chat_name, chat_id)
+   if pattern ~= '' then
+      local receiver = get_receiver(msg)
+      send_msg(receiver, pattern, ok_cb, false)
+   end
+end
+
 function chat_new_user(msg)
-   local name = msg.action.user.first_name:gsub('_', ' ')
-    local id = msg.action.user.id
-    if msg.action.user.username then
-      name = name
+   local pattern = add_user_cfg.initial_chat_msg
+   local to_username = msg.action.user.username
+   local from_username = msg.from.username
+   local chat_name = msg.to.print_name
+   local chat_id = msg.to.id
+   pattern = template_add_user(pattern, to_username, from_username, chat_name, chat_id)
+   if pattern ~= '' then
+      local receiver = get_receiver(msg)
+      send_msg(receiver, pattern, ok_cb, false)
    end
-   local chat = msg.to.print_name:gsub('_', ' ')
-   local receiver = get_receiver(msg)
-   local message = redis:get('welcome:'..msg.to.id)
-   if not message then
-      return '😀 ' ..lang_text(msg.to.id, 'welcome1') ..name.. '! ' ..lang_text(msg.to.id, 'welcome2') ..chat..'!\n🆔 ' ..id
-   end
-   send_msg(receiver, message, ok_cb, false)
 end
 
-local function wlc_enabled(msg)
-   local var = true
-   local hash = 'wlcstatus:'..msg.to.id
-   local cstatus = redis:get(hash)
-   if cstatus == 'off' then
-      var = false
+local function description_rules(msg, nama)
+   local data = load_data(_config.moderation.data)
+   if data[tostring(msg.to.id)] then
+      local about = ""
+      local rules = ""
+      if data[tostring(msg.to.id)]["description"] then
+         about = data[tostring(msg.to.id)]["description"]
+         about = "\nAbout :\n"..about.."\n"
+      end
+      if data[tostring(msg.to.id)]["rules"] then
+         rules = data[tostring(msg.to.id)]["rules"]
+         rules = "\nRules :\n"..rules.."\n"
+      end
+      local sambutan = "سلام "..nama.."\nخوش اومدی به > '"..string.gsub(msg.to.print_name, "_", " ").."'\n@JokerAnti\n"
+      local text = sambutan..about..rules.."\n"
+      local receiver = get_receiver(msg)
+      send_large_msg(receiver, text, ok_cb, false)
    end
-   
-   return var
-end
-
-local function bye_enabled(msg)
-   local var = true
-   local hash = 'byestatus:'..msg.to.id
-   local cstatus = redis:get(hash)
-   if cstatus == 'off' then
-      var = false
-   end
-   
-   return var
 end
 
 local function run(msg, matches)
-
-
-	local receiver = get_receiver(msg)
-	if matches[1] == "chat_add_user" then
-	   if not wlc_enabled(msg) then
-	      return
+   if not msg.service then
+      return "Are you trying to troll me?"
    end
-		return chat_new_user(msg)
-	elseif matches[1] == "chat_add_user_link" then
-	   if not wlc_enabled(msg) then
-	      return
-	   end
-		local name = msg.from.first_name:gsub('_', ' ')
-		local chat = msg.to.print_name:gsub('_', ' ')
-		local message
-		if msg.from.username then
-			name = name
-		end
-		message = redis:get('welcome:'..msg.to.id)
-		if not message then
-         return '😀' ..lang_text(msg.to.id, 'welcome1') ..name.. '!' ..lang_text(msg.to.id, 'welcome2') ..chat..'!\n🆔 ' ..id
+   --vardump(msg)
+   if matches[1] == "chat_add_user" then
+      if not msg.action.user.username then
+          nama = string.gsub(msg.action.user.print_name, "_", " ")
+      else 
+          nama = "@"..msg.action.user.username
       end
-		send_msg(receiver, message, ok_cb, false)
-	elseif matches[1] == "chat_del_user" then
-	   if not bye_enabled(msg) then
-	      return
-	   end
-		local name = msg.action.user.first_name:gsub('_', ' ')
-		if msg.action.user.username then
-			name = name
-		end
-		local message = redis:get('bye:'..msg.to.id)
-		if not message then
-         return '😀 ' ..lang_text(msg.to.id, 'bye1') ..name.. '!' ..lang_text(msg.to.id, 'bye2')
+      chat_new_user(msg)
+      description_rules(msg, nama)
+   elseif matches[1] == "chat_add_user_link" then
+      if not msg.from.username then
+          nama = string.gsub(msg.from.print_name, "_", " ")
+      else
+          nama = "@"..msg.from.username
       end
-		send_msg(receiver, message, ok_cb, false)
-   elseif matches[1] == 'setwelcome' then
-		if not permissions(msg.from.id, msg.to.id, "welcome") then
-			return '🚫 '..lang_text(msg.to.id, 'require_mod')
-		end
-      print(msg.to.id)
-      local hash = 'welcome:'..msg.to.id
-      redis:set(hash, matches[2])
-      return '✅ ' ..lang_text(msg.to.id, 'welnew') .. ': \n'  ..matches[2]
-   elseif matches[1] == 'getwelcome' then
-      print(msg.to.id)
-      local hash = 'welcome:'..msg.to.id
-      local wel = redis:get(hash)
-      if not wel then
-         return 'ℹ️ ' ..lang_text(msg.to.id, 'weldefault')
-      end
-      return wel
-   elseif matches[1] == 'setbye' then
-   if not permissions(msg.from.id, msg.to.id, "welcome") then
-			return ' 🚫'..lang_text(msg.to.id, 'require_mod')
-		end
-      print(msg.to.id)
-      local hash = 'bye:'..msg.to.id
-      redis:set(hash, matches[2])
-      return '✅ ' ..lang_text(msg.to.id, 'newbye') .. ':\n'..matches[2]
-   elseif matches[1] == 'getbye' then
-   if not permissions(msg.from.id, msg.to.id, "welcome") then
-			return ' 🚫'..lang_text(msg.to.id, 'require_mod')
-		end
-      print(msg.to.id)
-      local hash = 'bye:'..msg.to.id
-      local wel = redis:get(hash)
-      if not wel then
-         return 'ℹ️ ' ..lang_text(msg.to.id, 'byedefault')
-      end
-      return wel
-   elseif matches[1] == 'welcome on' then
-   if not permissions(msg.from.id, msg.to.id, "welcome") then
-			return ' 🚫'..lang_text(msg.to.id, 'require_mod')
-		end
-      local hash = 'wlcstatus:'..msg.to.id
-      redis:set(hash, 'on')
-      return 'ℹ️ '..lang_text(msg.to.id, 'welon')
-   elseif matches[1] == 'welcome off' then
-   if not permissions(msg.from.id, msg.to.id, "welcome") then
-			return '🚫 '..lang_text(msg.to.id, 'require_mod')
-		end
-      local hash = 'wlcstatus:'..msg.to.id
-      redis:set(hash, 'off')
-      return 'ℹ️ '..lang_text(msg.to.id, 'weloff')
-   elseif matches[1] == 'bye on' then
-   if not permissions(msg.from.id, msg.to.id, "welcome") then
-			return ' 🚫'..lang_text(msg.to.id, 'require_mod')
-		end
-      local hash = 'byestatus:'..msg.to.id
-      redis:set(hash, 'on')
-      return 'ℹ️ '..lang_text(msg.to.id, 'byeon')
-   elseif matches[1] == 'bye off' then
-   if not permissions(msg.from.id, msg.to.id, "welcome") then
-			return ' 🚫'..lang_text(msg.to.id, 'require_mod')
-		end
-      local hash = 'byestatus:'..msg.to.id
-      redis:set(hash, 'off')
-      return 'ℹ️ '..lang_text(msg.to.id, 'byeoff')
+      chat_new_user_link(msg)
+      description_rules(msg, nama)
+   elseif matches[1] == "chat_del_user" then
+       local bye_name = msg.action.user.first_name
+       return 'Bye '..bye_name
    end
 end
 
 return {
-   description = "Service plugin that sends a custom message when an user enters a chat.",
-   usage = "",
+   description = "Welcoming Message",
+   usage = "send message to new member",
    patterns = {
-	"^!!tgservice (chat_add_user)$",
-	"^!!tgservice (chat_del_user)$",
-	"^!!tgservice (chat_add_user_link)$",
-	"^[!/#](setwelcome) (.*)",
-	"^[!/#](getwelcome)",
-	"^[!/#](setbye) (.*)",
-	"^[!/#](getbye)",
-	"^[!/#](welcome on)",
-	"^[!/#](welcome off)",
-	"^[!/#](bye on)",
-	"^[!/#](bye off)"
+      "^!!tgservice (channel_add_user)$",
+      "^!!tgservice (chat_add_user_link)$"
    },
    run = run
 }
