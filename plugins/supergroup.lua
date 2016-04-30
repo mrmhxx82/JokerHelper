@@ -1268,7 +1268,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return "🆔 ایدی سوپر گروه" ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n"..msg.to.id
+				return " 🆔 ایدی سوپر گروه 🆔 " ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n"..msg.to.id
 			end
 		end
 
@@ -1925,7 +1925,7 @@ local function run(msg, matches)
 					return "["..user_id.."] removed from the muted users list"
 				elseif is_owner(msg) then
 					mute_user(chat_id, user_id)
-					savelog(msg.to.id, name_log.."☢ ["..msg.from.id.."] به ["..user_id.."] لیست بی صدا ها افزوده شد ☢")
+					savelog(msg.to.id, name_log.."☢ ["..msg.from.id.."] به ["..user_id.."] لیست بی صدا ها افزوده شد ")
 					return "☢ ["..user_id.."] ☢به لیست بی صدا ها افزوده شد"
 				end
 			elseif matches[1] == "muteuser" and matches[2] and not string.match(matches[2], '^%d+$') then
