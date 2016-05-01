@@ -254,6 +254,8 @@ function create_config( )
 	"JoinSupport";
 	"texttosticker";
 	"launch";
+	"loc";
+"plug";
 	
     
 	
