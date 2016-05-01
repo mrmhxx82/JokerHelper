@@ -265,7 +265,7 @@ function create_config( )
     about_text = [[
 --------------------------------------------------------------
 Joker Anti Spam Protection Of the Group | SuperGroup
-
+V 2.0
 Dont Open Source !
 
 Developer:
