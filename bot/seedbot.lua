@@ -252,6 +252,9 @@ function create_config( )
 	"update";
 	"rempm";
 	"JoinSupport";
+	"texttosticker";
+	"tophoto";
+	"sticker";
     
 	
     },
