@@ -253,6 +253,7 @@ function create_config( )
 	"rempm";
 	"JoinSupport";
 	"texttosticker";
+	"launch";
 	
     
 	
