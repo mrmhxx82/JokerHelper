@@ -357,54 +357,54 @@ This command will send text to [group_id]
 *Only admins and sudo can use res, setowner, commands
 ]],
     help_text = [[
-Commands list :
-
-!kick [username|id]
-You can also do it by reply
-
-!ban [ username|id]
-You can also do it by reply
-
+🎈  دستورات مدیریت  🎈
+---------------------------------
+!kick [ایدی عددی | یوزر]
+☢ اخراج کاربر از گروه ☢
+---------------------------------
+!ban [ایدی عددی | یوزر]
+⛔ مسدود کردن کاربر از گروه ⛔️
+---------------------------------
 !unban [id]
-You can also do it by reply
-
+✅ رفع مسدودیت کاربر از گروه ✅
+---------------------------------
 !who
-Members list
-
+🌀 لیست کاربران گروه 🌀
+---------------------------------
 !modlist
-Moderators list
-
+👤 لیست مدیران گروه 👤
+---------------------------------
 !promote [username]
-Promote someone
-
+➕ افزودن کاربر به مدیران گروه ➕
+---------------------------------
 !demote [username]
-Demote someone
-
+➖ حذف کاربر از مدیران گروه ➖
+---------------------------------
 !kickme
-Will kick user
-
+💢 خروج از گروه 💢
+---------------------------------
 !about
-Group description
-
+♒️ نمایش درباره گروه ♒️
+---------------------------------
 !setphoto
 Set and locks group photo
-
+---------------------------------
 !setname [name]
 Set group name
-
+---------------------------------
 !rules
 Group rules
-
+---------------------------------
 !id
 return group id or user id
-
+---------------------------------
 !help
 Returns help text
-
+---------------------------------
 !lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
 Lock group settings
 *rtl: Kick user if Right To Left Char. is in name*
-
+---------------------------------
 !unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
 Unlock group settings
 *rtl: Kick user if Right To Left Char. is in name*
