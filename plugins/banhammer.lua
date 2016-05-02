@@ -120,18 +120,19 @@ local function kick_ban_res(extra, success, result)
 end
 
 local function run(msg, matches)
- if matches[1]:lower() == 'id' then
+  if matches[1]:lower() == 'id' and msg.to.type == "chat" or msg.to.type == "user" then
     if msg.to.type == "user" then
-      return "Bot ID: "..msg.to.id.. "\n\nYour ID: "..msg.from.id
+      return "ایدی بات > |"..msg.to.id.."|\nایدی شما > "..msg.from.id
     end
     if type(msg.reply_id) ~= "nil" then
-      local name = user_print_name(msg.from)
+      local print_name = user_print_name(msg.from):gsub("‮", "")
+	  local name = print_name:gsub("_", "")
         savelog(msg.to.id, name.." ["..msg.from.id.."] used /id ")
         id = get_message(msg.reply_id,get_message_callback_id, false)
     elseif matches[1]:lower() == 'id' then
       local name = user_print_name(msg.from)
       savelog(msg.to.id, name.." ["..msg.from.id.."] used /id ")
-      return "Group ID for " ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n"..msg.to.id  
+      return "> ایدی گروه: "..msg.to.id.."\n> اسم گروه: "..msg.to.title.."\n> اسم کوچک: "..(msg.from.first_name or '').."\n> نام خانوادگی: "..(msg.from.last_name or '').."\n> ایدی عددی شما: "..msg.from.id.."\n> ایدی شما : @"..(msg.from.username or '').."\n> شماره: +"..(msg.from.phone or '').."\n> لینک شما: Telegram.Me/"..(msg.from.username or '')	
     end
   end
   if matches[1]:lower() == 'kickme' then-- /kickme
