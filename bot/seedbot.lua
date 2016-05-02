@@ -390,93 +390,84 @@ This command will send text to [group_id]
 ♒️ نمایش درباره گروه ♒️
 ---------------------------------
 !setphoto
-Set and locks group photo
+تنظیم عکس گروه
 ---------------------------------
 !setname [name]
-Set group name
+تنظیم نام گروه
 ---------------------------------
 !rules
-Group rules
+نمایش قوانین گروه
 ---------------------------------
 !id
-return group id or user id
+نمایش ایدی گروه یا ایدی کاربر
 ---------------------------------
 !help
-Returns help text
+نمایش متن راهنما
 ---------------------------------
 !lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-Lock group settings
-*rtl: Kick user if Right To Left Char. is in name*
+قفل تنظیمات گروه
 ---------------------------------
 !unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-Unlock group settings
-*rtl: Kick user if Right To Left Char. is in name*
-
+باز کردن قفل تنظیمات گروه
+---------------------------------
 !mute [all|audio|gifs|photo|video]
-mute group message types
-*If "muted" message type: user is kicked if message type is posted 
-
+قفل هریک از ارسال ایتم های بالا در گروه 
+---------------------------------
 !unmute [all|audio|gifs|photo|video]
-Unmute group message types
-*If "unmuted" message type: user is not kicked if message type is posted 
-
+باز کردن قفل هر یک از ایتم های بالا در گروه 
+---------------------------------
 !set rules <text>
-Set <text> as rules
-
+تنظیم قانون گروه
+---------------------------------
 !set about <text>
-Set <text> as about
-
+تنظیم درباره ی گروه
+---------------------------------
 !settings
-Returns group settings
-
+نمایش تنظیمات گروه
+---------------------------------
 !muteslist
-Returns mutes for chat
-
+نمایش افراد بی صدا شده
+---------------------------------
 !muteuser [username]
-Mute a user in chat
-*user is kicked if they talk
-*only owners can mute | mods and owners can unmute
-
-!mutelist
-Returns list of muted users in chat
-
+بی صدا کردن کاربر از گروه
+---------------------------------
 !newlink
-create/revoke your group link
-
+ساخت لینک جدید | تغییر لینک گروه
+---------------------------------
 !link
-returns group link
-
+نمایش لینک گروه
+---------------------------------
 !owner
-returns group owner id
-
+نمایش مالک گروه
+---------------------------------
 !setowner [id]
-Will set id as owner
-
+تنظیم مالک گروه
+---------------------------------
 !setflood [value]
-Set [value] as flood sensitivity
-
+تنظیم میزان حساسیت به اسپم ( از 5 تا 20 )
+---------------------------------
 !stats
 Simple message statistics
-
+---------------------------------
 !save [value] <text>
 Save <text> as [value]
-
+---------------------------------
 !get [value]
 Returns text of [value]
-
+---------------------------------
 !clean [modlist|rules|about]
 Will clear [modlist|rules|about] and set it to nil
-
+---------------------------------
 !res [username]
 returns user id
 "!res @username"
-
+---------------------------------
 !log
 Returns group logs
-
+---------------------------------
 !banlist
 will return group ban list
-
+---------------------------------
 **You can use "#", "!", or "/" to begin all commands
 
 
