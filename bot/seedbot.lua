@@ -254,8 +254,10 @@ function create_config( )
 	"JoinSupport";
 	"texttosticker";
 	"launch";
-	"loc";
+
 "plug";
+"GPS";
+"Tr";
 	
     
 	
