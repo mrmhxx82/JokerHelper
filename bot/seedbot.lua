@@ -258,6 +258,7 @@ function create_config( )
 "plug";
 "GPS";
 "Tr";
+"me";
 	
     
 	
