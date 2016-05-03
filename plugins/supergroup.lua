@@ -1949,7 +1949,7 @@ local function run(msg, matches)
 		end
 
 		if matches[1] == 'help' and not is_owner(msg) then
-			text = "Message /superhelp to @BlackPlus in private for SuperGroup help."
+			text = "🌀 دستور /superhelp را در چت شخصی برای بات ارسال کنید"
 			reply_msg(msg.id, text, ok_cb, false)
 		elseif matches[1] == 'help' and is_owner(msg) then
 			local name_log = user_print_name(msg.from)
@@ -2015,7 +2015,7 @@ local function pre_process(msg)
 end
 
 return {
-  patterns = {
+patterns = {
 	"^[#!/]([Aa]dd)$",
 	"^[#!/]([Rr]em)$",
 	"^[#!/]([Mm]ove) (.*)$",
@@ -2026,9 +2026,9 @@ return {
 	"^[#!/]([Bb]ots)$",
 	"^[#!/]([Ww]ho)$",
 	"^[#!/]([Kk]icked)$",
-        "^[#!/]([Kk]ick) (.*)",
-	"^[#!/]([Kk]ick)",
-	"^[#!/]([Uu]pchat)$",
+    "^[#!/]([Bb]lock) (.*)",
+	"^[#!/]([Bb]lock)",
+	"^[#!/]([Tt]osuper)$",
 	"^[#!/]([Ii][Dd])$",
 	"^[#!/]([Ii][Dd]) (.*)$",
 	"^[#!/]([Kk]ickme)$",
@@ -2055,21 +2055,21 @@ return {
 	"^[#!/]([Dd]el)$",
 	"^[#!/]([Ll]ock) (.*)$",
 	"^[#!/]([Uu]nlock) (.*)$",
-	"^[#!/]([Ss]ilent) ([^%s]+)$",
-	"^[#!/]([Ss]ilent) ([^%s]+)$",
-	"^[#!/]([Ss]ilentuser)$",
-	"^[#!/]([Ss]ilentuser) (.*)$",
+	"^[#!/]([Mm]ute) ([^%s]+)$",
+	"^[#!/]([Uu]nmute) ([^%s]+)$",
+	"^[#!/]([Mm]uteuser)$",
+	"^[#!/]([Mm]uteuser) (.*)$",
 	"^[#!/]([Pp]ublic) (.*)$",
 	"^[#!/]([Ss]ettings)$",
 	"^[#!/]([Rr]ules)$",
 	"^[#!/]([Ss]etflood) (%d+)$",
 	"^[#!/]([Cc]lean) (.*)$",
 	"^[#!/]([Hh]elp)$",
-	"^[#!/]([Ss]ilentlist)$",
-	"^[#!/]([Ss]ilentlist)$",
+	"^[#!/]([Mm]uteslist)$",
+	"^[#!/]([Mm]utelist)$",
     "[#!/](mp) (.*)",
 	"[#!/](md) (.*)",
-    "([Hh][Tt][Tt][Pp][Ss]://[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]/%S+)",
+    "^(https://telegram.me/joinchat/%S+)$",
 	"msg.to.peer_id",
 	"%[(document)%]",
 	"%[(photo)%]",
