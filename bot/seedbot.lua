@@ -420,9 +420,14 @@ This command will send text to [group_id]
 #clean mutelist
 
 🔘 بی صدا
-#silentlist
-#silentuser
-#silent
+#mutetlist
+#muteuser
+#mute all
+#mute audio
+#mute gifs
+#mute photo
+#mute video
+#mute service
 
 🔘 مدیران
 #setadmin
