@@ -266,15 +266,7 @@ function create_config( )
     sudo_users = {190840223},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[
---------------------------------------------------------------
-Joker Anti Spam Protection Of the Group | SuperGroup
-V 2.0
-Dont Open Source !
 
-Developer:
-@Mr_Mh58
---------------------------------------------------------------
-http://uupload.ir/files/nia_photo_2016-04-24_00-30-07.jpg
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -360,265 +352,111 @@ This command will send text to [group_id]
 *Only admins and sudo can use res, setowner, commands
 ]],
     help_text = [[
-🎈  دستورات مدیریت  🎈
----------------------------------
-!kick [ایدی عددی | یوزر]
-☢ اخراج کاربر از گروه ☢
----------------------------------
-!ban [ایدی عددی | یوزر]
-⛔ مسدود کردن کاربر از گروه ⛔️
----------------------------------
-!unban [id]
-✅ رفع مسدودیت کاربر از گروه ✅
----------------------------------
-!who
-🌀 لیست کاربران گروه 🌀
----------------------------------
-!modlist
-👤 لیست مدیران گروه 👤
----------------------------------
-!promote [username]
-➕ افزودن کاربر به مدیران گروه ➕
----------------------------------
-!demote [username]
-➖ حذف کاربر از مدیران گروه ➖
----------------------------------
-!kickme
-💢 خروج از گروه 💢
----------------------------------
-!about
-♒️ نمایش درباره گروه ♒️
----------------------------------
-!setphoto
-تنظیم عکس گروه
----------------------------------
-!setname [name]
-تنظیم نام گروه
----------------------------------
-!rules
-نمایش قوانین گروه
----------------------------------
-!id
-نمایش ایدی گروه یا ایدی کاربر
----------------------------------
-!help
-نمایش متن راهنما
----------------------------------
-!lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-قفل تنظیمات گروه
----------------------------------
-!unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-باز کردن قفل تنظیمات گروه
----------------------------------
-!mute [all|audio|gifs|photo|video]
-قفل هریک از ارسال ایتم های بالا در گروه 
----------------------------------
-!unmute [all|audio|gifs|photo|video]
-باز کردن قفل هر یک از ایتم های بالا در گروه 
----------------------------------
-!set rules <text>
-تنظیم قانون گروه
----------------------------------
-!set about <text>
-تنظیم درباره ی گروه
----------------------------------
-!settings
-نمایش تنظیمات گروه
----------------------------------
-!muteslist
-نمایش افراد بی صدا شده
----------------------------------
-!muteuser [username]
-بی صدا کردن کاربر از گروه
----------------------------------
-!newlink
-ساخت لینک جدید | تغییر لینک گروه
----------------------------------
-!link
-نمایش لینک گروه
----------------------------------
-!owner
-نمایش مالک گروه
----------------------------------
-!setowner [id]
-تنظیم مالک گروه
----------------------------------
-!setflood [value]
-تنظیم میزان حساسیت به اسپم ( از 5 تا 20 )
----------------------------------
-!stats
-Simple message statistics
----------------------------------
-!save [value] <text>
-Save <text> as [value]
----------------------------------
-!get [value]
-Returns text of [value]
----------------------------------
-!clean [modlist|rules|about]
-Will clear [modlist|rules|about] and set it to nil
----------------------------------
-!res [username]
-returns user id
-"!res @username"
----------------------------------
-!log
-Returns group logs
----------------------------------
-!banlist
-will return group ban list
----------------------------------
-**You can use "#", "!", or "/" to begin all commands
+🌀 دستورات گروه
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
 
+🔘 قفل تنظیمات
 
-*Only owner and mods can add bots in group
+#lock|unlock links
+#lock|unlock flood
+#lock|unlock spam
+#lock|unlock arabic
+#lock|unlock member
+#lock|unlock rtl
+#lock|unlock sticker
+#lock|unlock contacts
+#lock|unlock strict
 
-
-*Only moderators and owner can use kick,ban,unban,newlink,link,setphoto,setname,lock,unlock,set rules,set about and settings commands
-
-*Only owner can use res,setowner,promote,demote and log commands
 
 ]],
 	help_text_super =[[
-SuperGroup Commands:
+🌀 دستورات گروه
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
 
-!info
-Displays general info about the SuperGroup
+🔘 قفل تنظیمات
+#lock|unlock links
+#lock|unlock flood
+#lock|unlock spam
+#lock|unlock arabic
+#lock|unlock member
+#lock|unlock rtl
+#lock|unlock sticker
+#lock|unlock contacts
+#lock|unlock strict
 
-!admins
-Returns SuperGroup admins list
+🔘 تغییر مشخصات گروه
+#setname
+#setphoto
+#setrules
+#setabout
 
-!owner
-Returns group owner
+🔘 لینک
+#link
+#setlink
+#newlink
+#linkpv
 
-!modlist
-Returns Moderators list
+🔘 تنظیمات
+#settings
 
-!bots
-Lists bots in SuperGroup
+🔘 مشخصات
+#id
+#info
+#me
+#rules
+#about
+#res
 
-!who
-Lists all users in SuperGroup
+🔘 فیلتر
+#block
+#unblock
+#blocklist
+#unblockall
 
-!block
-Kicks a user from SuperGroup
-*Adds user to blocked list*
+🔘 حذف
+#clean rules
+#clean about
+#clean modlist
+#clean mutelist
 
-!ban
-Bans user from the SuperGroup
+🔘 بی صدا
+#silentlist
+#silentuser
+#silent
 
-!unban
-Unbans user from the SuperGroup
+🔘 مدیران
+#setadmin
+#demoteadmin
+#setowner
+#admins
+#owner
+#modlist
+#promote
+#demote
 
-!id
-Return SuperGroup ID or user id
-*For userID's: !id @username or reply !id*
+🔘 حساسیت اسپم
+#setflood
 
-!id from
-Get ID of user message is forwarded from
+🔘 حذف پیام
+#del
+#rm
 
-!kickme
-Kicks user from SuperGroup
-*Must be unblocked by owner or use join by pm to return*
+🔘 پشتیبانی
+#joinsupport
+#support
 
-!setowner
-Sets the SuperGroup owner
+🔘 مدیریت اعضا
+#kick
+#ban
+#unban
+#banlist
 
-!promote [username|id]
-Promote a SuperGroup moderator
+🔘 لیست اعضا
+#who
 
-!demote [username|id]
-Demote a SuperGroup moderator
+🔘 لیست بات های گروه
+#bots
 
-!setname
-Sets the chat name
-
-!setphoto
-Sets the chat photo
-
-!setrules
-Sets the chat rules
-
-!setabout
-Sets the about section in chat info(members list)
-
-!save [value] <text>
-Sets extra info for chat
-
-!get [value]
-Retrieves extra info for chat by value
-
-!newlink
-Generates a new group link
-
-!link
-Retireives the group link
-
-!rules
-Retrieves the chat rules
-
-!lock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-Lock group settings
-*rtl: Delete msg if Right To Left Char. is in name*
-*strict: enable strict settings enforcement (violating user will be kicked)*
-
-!unlock [links|flood|spam|Arabic|member|rtl|sticker|contacts|strict]
-Unlock group settings
-*rtl: Delete msg if Right To Left Char. is in name*
-*strict: disable strict settings enforcement (violating user will not be kicked)*
-
-!mute [all|audio|gifs|photo|video|service]
-mute group message types
-*A "muted" message type is auto-deleted if posted
-
-!unmute [all|audio|gifs|photo|video|service]
-Unmute group message types
-*A "unmuted" message type is not auto-deleted if posted
-
-!setflood [value]
-Set [value] as flood sensitivity
-
-!settings
-Returns chat settings
-
-!muteslist
-Returns mutes for chat
-
-!muteuser [username]
-Mute a user in chat
-*If a muted user posts a message, the message is deleted automaically
-*only owners can mute | mods and owners can unmute
-
-!mutelist
-Returns list of muted users in chat
-
-!banlist
-Returns SuperGroup ban list
-
-!clean [rules|about|modlist|mutelist]
-
-!del
-Deletes a message by reply
-
-!public [yes|no]
-Set chat visibility in pm !chats or !chatlist commands
-
-!res [username]
-Returns users name and id by username
-
-
-!log
-Returns group logs
-*Search for kick reasons using [#RTL|#spam|#lockmember]
-
-**You can use "#", "!", or "/" to begin all commands
-
-*Only owner can add members to SuperGroup
-(use invite link to invite)
-
-*Only moderators and owner can use block, ban, unban, newlink, link, setphoto, setname, lock, unlock, setrules, setabout and settings commands
-
-*Only owner can use res, setowner, promote, demote, and log commands
 
 ]],
   }
