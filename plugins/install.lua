@@ -7,7 +7,7 @@ text = io.popen("./launch.sh install "):read('*all')
 end
 return {
   patterns = {
-    '^[#/!]up$'
+    '^[#/!]install$'
   },
   run = run,
   moderated = true
