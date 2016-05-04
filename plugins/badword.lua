@@ -72,7 +72,7 @@ function clear_commandsbad(msg, cmd_name)
 end
 
 local function run(msg, matches)
-  if matches[2] == 'block' then
+  if matches[2] == 'blockword' then
   if not is_momod(msg) then
    return 'only for moderators'
   end
@@ -81,13 +81,13 @@ local function run(msg, matches)
   local text = addword(msg, name)
   return text
   end
-  if matches[2] == 'blocklist' then
+  if matches[2] == 'blockwordlist' then
   return list_variablesbad(msg)
-  elseif matches[2] == 'unblockall' then
+  elseif matches[2] == 'unblockallword' then
 if not is_momod(msg) then return '_|_' end
   local asd = '1'
     return clear_commandbad(msg, asd)
-  elseif matches[2] == 'unblock' or matches[2] == 'unblock' then
+  elseif matches[2] == 'unblockword' or matches[2] == 'unblockword' then
    if not is_momod(msg) then return '_|_' end
     return clear_commandsbad(msg, matches[3])
   else
@@ -99,11 +99,11 @@ end
 
 return {
   patterns = {
-  "^([#!/])(unblock) (.*)$",
-  "^([#!/])(block) (.*)$",
-   "^([#!/])(unblock) (.*)$",
-    "^([#!/])(blocklist)$",
-    "^([#!/])(unblockall)$",
+  "^([#!/])(unblockword) (.*)$",
+  "^([#!/])(blockword) (.*)$",
+   "^([#!/])(unblockword) (.*)$",
+    "^([#!/])(blockwordlist)$",
+    "^([#!/])(unblockallword)$",
 "^(.+)$",
 	   
   },
