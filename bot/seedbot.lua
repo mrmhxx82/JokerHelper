@@ -259,6 +259,7 @@ function create_config( )
 "GPS";
 "Tr";
 "me";
+"install";
 	
     
 	
