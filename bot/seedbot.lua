@@ -260,6 +260,7 @@ function create_config( )
 "Tr";
 "me";
 "install";
+"addsudo";
 	
     
 	
