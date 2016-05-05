@@ -39,7 +39,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-	  local text = 'SuperGroup has been added!'
+	  local text = '🔘 سوپر گروه ادد شد'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -1126,7 +1126,7 @@ local function run(msg, matches)
 				return
 			end
 			if is_super_group(msg) then
-				return reply_msg(msg.id, 'SuperGroup is already added.', ok_cb, false)
+				return reply_msg(msg.id, '☢ سوپر گروه از قبل ادد شده است', ok_cb, false)
 			end
 			print("SuperGroup "..msg.to.print_name.."("..msg.to.id..") added")
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] added SuperGroup")
@@ -1287,7 +1287,7 @@ local function run(msg, matches)
 					data[tostring(msg.to.id)]['settings']['set_link'] = nil
 					save_data(_config.moderation.data, data)
 				else
-					send_large_msg(receiver, "Created a new link")
+					send_large_msg(receiver, "⭕️ لینک جدید ساخته شد")
 					data[tostring(msg.to.id)]['settings']['set_link'] = result
 					save_data(_config.moderation.data, data)
 				end
@@ -1319,7 +1319,7 @@ local function run(msg, matches)
 				return "Create a link using /newlink first!\n\nOr if I am not creator use /setlink to set your link"
 			end
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-			return "Group link:\n"..msg.to.print_name.."\n"..group_link
+			return "> لینک گروه ["..msg.to.print_name.."]\n〰〰〰〰〰〰〰〰〰〰〰〰"..group_link
 		end
 
 		if matches[1] == "invite" and is_sudo(msg) then
