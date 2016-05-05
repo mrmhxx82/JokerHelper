@@ -1259,7 +1259,7 @@ local function run(msg, matches)
 				get_message(msg.reply_id, get_message_callback, cbreply_extra)
 			elseif msg.text:match("@[%a%d]") then
 				local cbres_extra = {
-					channelid = msg.to.id,
+					channelid = "🆔 ایدی شما" ..msg.to.id
 					get_cmd = 'id'
 				}
 				local username = matches[2]
@@ -1268,7 +1268,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return "🆔 ایدی سوپر گروه [" ..string.gsub(msg.to.print_name, "_", " ").. "] : \n\n"..msg.to.id
+				return "🆔 ایدی سوپر گروه \n [" ..string.gsub(msg.to.print_name, "_", " ").. "] : \n\n"..msg.to.id
 			end
 		end
 
