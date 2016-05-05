@@ -1259,7 +1259,7 @@ local function run(msg, matches)
 				get_message(msg.reply_id, get_message_callback, cbreply_extra)
 			elseif msg.text:match("@[%a%d]") then
 				local cbres_extra = {
-					channelid = "🆔 ایدی شما" ..msg.to.id
+					channelid = msg.to.id,
 					get_cmd = 'id'
 				}
 				local username = matches[2]
