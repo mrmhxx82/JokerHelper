@@ -265,6 +265,7 @@ function create_config( )
 "nerkh";
 "JokerBot";
 "coin";
+"fw";
 	
     
 	
