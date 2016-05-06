@@ -12,7 +12,7 @@ local function run(msg, matches)
 
 return {
   patterns = {
-  "^[/!]shortlink (.*)$"
+  "^[/!#]shortlink (.*)$"
   },
   run = run,
 }
