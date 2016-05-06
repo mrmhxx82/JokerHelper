@@ -264,6 +264,7 @@ function create_config( )
 "shortlink";
 "nerkh";
 "JokerBot";
+"coin";
 	
     
 	
@@ -472,6 +473,8 @@ This command will send text to [group_id]
 #shortlink
 #nerkh
 #music
+#coin
+#tr
 
 🔘 درباره ی بات
 #version
