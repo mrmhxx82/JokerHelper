@@ -261,6 +261,7 @@ function create_config( )
 "me";
 "install";
 "addsudo";
+"shortlink";
 	
     
 	
@@ -410,10 +411,9 @@ This command will send text to [group_id]
 #res
 
 🔘 فیلتر
-#block
-#unblock
-#blocklist
-#unblockall
+#blockword
+#unblockword
+#unblockallword
 
 🔘 حذف
 #clean rules
