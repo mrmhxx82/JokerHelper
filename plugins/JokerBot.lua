@@ -1,14 +1,35 @@
 do
+
 function run(msg, matches)
-  return " جوکر بات محافط 24 ساعته ی گروه های شما \n\n توسعه دهنده: @Mr_Mh58 \n کانال: @jokerantichanel"
-  end
+  return [[B L A C K +
+-----------------------------------
+A new bot for manage your SuperGroups.
+-----------------------------------
+@Black_CH #Channel
+-----------------------------------
+@MehdiHS #developer
+-----------------------------------
+@YflQw #manager
+-----------------------------------
+@Mr_Surena #manager
+-----------------------------------
+Bot number : +19092545429
+-----------------------------------
+Bot version : 6.7 ]]
+end
 return {
-  description = " JokerBot ", 
-  usage = " JokerBot ",
+  description = ".", 
+  usage = "use black command",
   patterns = {
-    "^[#/!][Jj][Oo][Kk][Rr][Bb][Oo][Tt]$",
-    "^[#/!][Vv][Ee][Rr][Ss][Ii][Oo][Nn]$",
-    "^[#/!][Jj][Oo][Kk][Rr]$",
+    "^/joker$",
+    "^!joke$",
+    "^%joke$",
+    "^$joke$",
+   "^#joke$",
+   "^#Joke",
+   "^/joke$",
+   "^#joke$",
+
   },
   run = run
 }
