@@ -119,7 +119,6 @@ local admin_num = "Admin count: "..result.admins_count.."\n"
 local user_num = "User count: "..result.participants_count.."\n"
 local kicked_num = "Kicked user count: "..result.kicked_count.."\n"
 local channel_id = "ID: "..result.peer_id.."\n"
-local phon_number = " Your Phon Number : "..(msg.from.phone or '')
 if result.username then
 	channel_username = "Username: @"..result.username
 else
