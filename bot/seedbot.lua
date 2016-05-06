@@ -465,6 +465,12 @@ This command will send text to [group_id]
 🔘 لیست بات های گروه
 #bots
 
+🔘 ابزار ها
+#voice 
+#calc
+#shortlink
+#nerkh
+
 
 ]],
   }
