@@ -1,34 +1,28 @@
 do
 
 function run(msg, matches)
-  return [[B L A C K +
+  return [[جوکر انتی اسپم
 -----------------------------------
-A new bot for manage your SuperGroups.
+بات انتی اسپم جوکر محافظ 24 ساعته ی گروه های شما
 -----------------------------------
-@Black_CH #Channel
+@jokerantichanel #کانال
 -----------------------------------
-@MehdiHS #developer
+@Mr_Mh58 #توسعه دهنده
 -----------------------------------
-@YflQw #manager
------------------------------------
-@Mr_Surena #manager
------------------------------------
-Bot number : +19092545429
------------------------------------
-Bot version : 6.7 ]]
+ورژن بات : 2.5]]
 end
 return {
   description = ".", 
   usage = "use black command",
   patterns = {
     "^/joker$",
-    "^!joke$",
-    "^%joke$",
-    "^$joke$",
-   "^#joke$",
-   "^#Joke",
-   "^/joke$",
-   "^#joke$",
+    "^!joker$",
+    "^%joker$",
+    "^$joker$",
+   "^#joker$",
+   "^#Joker",
+   "^/joker$",
+   "^#joker$",
 
   },
   run = run
