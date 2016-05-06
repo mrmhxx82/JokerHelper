@@ -59,43 +59,43 @@ local function run (msg, matches)
   -- We wont return text if is a service msg
   if matches[1] ~= 'chat_add_user' and matches[1] ~= 'chat_add_user_link' then
     if msg.to.type ~= 'chat' and msg.to.type ~= 'channel' then
-      return 'Anti-flood works only on channels'
+      return 'Lock Bot Is Open On Channel'
     end
   end
 
   local chatId = msg.to.id
-  if matches[1] == 'enable' then
+  if matches[1] == 'lock' then
     enableAntiBot(chatId)
-    return 'Anti-bot enabled on this chat'
+    return 'Lock Bot Is Install'
   end
-  if matches[1] == 'disable' then
+  if matches[1] == 'unlock' then
     disableAntiBot(chatId)
-    return 'Anti-bot disabled on this chat'
+    return 'Lock Bot Is UnInstall'
   end
-  if matches[1] == 'allow' then
+  if matches[1] == 'open' then
     local userId = matches[2]
     allowBot(userId, chatId)
-    return 'Bot '..userId..' allowed'
+    return 'Bot '..userId..' Allowed'
   end
-  if matches[1] == 'disallow' then
+  if matches[1] == 'close' then
     local userId = matches[2]
     disallowBot(userId, chatId)
-    return 'Bot '..userId..' disallowed'
+    return 'Bot '..userId..' DisAllowed'
   end
   if matches[1] == 'chat_add_user' or matches[1] == 'chat_add_user_link' then
     local user = msg.action.user or msg.from
     if isABotBadWay(user) then
-      print('It\'s a bot!')
+      print('It Is Bot')
       if isAntiBotEnabled(chatId) then
-        print('Anti bot is enabled')
+        print('Lock Bot Is Install')
         local userId = user.id
         if not isBotAllowed(userId, chatId) then
           kickUser("user#id"..userId, "channel#id"..chatId)
          --chat_del_user(userId, chatId)
           channel_kick_user("channel#id"..msg.to.id, 'user#id'..userId, ok_cb, false)
-          return "Bot is disallowed Here"
+          return "Bot Is DisAllowed"
         else
-          print('This bot is allowed')
+          print('This Bot Is Allowed')
         end
       end
     end
@@ -111,10 +111,10 @@ return {
     '!antibot disallow <botId>: Disallow <botId> on this chat'
   },
   patterns = {
-    '^!antibot (allow) (%d+)$',
-    '^!antibot (disallow) (%d+)$',
-    '^!antibot (enable)$',
-    '^!antibot (disable)$',
+    '^[#!/](open) [Bb][Oo][Tt] (%d+)$',
+    '^[#!/](close) [Bb][Oo][Tt] (%d+)$',
+    '^[#!/](lock) [Bb][Oo][Tt]$',
+    '^[#!/](unlock) [Bb][Oo][Tt]$',
     '^!!tgservice (chat_add_user)$',
     '^!!tgservice (chat_add_user_link)$'
   },
