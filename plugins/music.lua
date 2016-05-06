@@ -4,7 +4,7 @@ local function musiclink(msg, musicid)
 	if not value then
 		return
 	else
-		value = value..'\n\nMrMH'
+		value = value..'\n\nبا تشکر از @gpmod'
 		return value
 	end
 end
@@ -37,7 +37,7 @@ function run(msg, matches)
 		if not value then
 			return 'آهنگ مورد نظر پیدا نشد.'
 		else
-			value = value..'\n\nMrMH'
+			value = value..'\n\nبا تشکر از @gpmod'
 			return value
 		end
 		return
