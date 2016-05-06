@@ -262,6 +262,7 @@ function create_config( )
 "install";
 "addsudo";
 "shortlink";
+"nerkh";
 	
     
 	
