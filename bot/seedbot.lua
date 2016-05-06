@@ -263,6 +263,7 @@ function create_config( )
 "addsudo";
 "shortlink";
 "nerkh";
+"JokerBot";
 	
     
 	
@@ -470,6 +471,12 @@ This command will send text to [group_id]
 #calc
 #shortlink
 #nerkh
+#music
+
+🔘 درباره ی بات
+#version
+#joker
+#jokerbot
 
 
 ]],
