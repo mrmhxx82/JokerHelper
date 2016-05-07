@@ -18,6 +18,7 @@ end
 return {
   patterns = {
     "^[/#!]([Ll]inkpv)$"
+    "^(لینک شخصی)$"
   },
   run = run
 }
