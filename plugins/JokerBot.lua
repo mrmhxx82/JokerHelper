@@ -5,9 +5,9 @@ function run(msg, matches)
 -----------------------------------
 بات انتی اسپم جوکر محافظ 24 ساعته ی گروه های شما
 -----------------------------------
-@jokerantichanel #کانال
+@jokerantichanel 
 -----------------------------------
-@Mr_Mh58 #توسعه دهنده
+@Mr_Mh58 
 -----------------------------------
 ورژن بات : 2.5]]
 end
@@ -15,15 +15,9 @@ return {
   description = ".", 
   usage = "use black command",
   patterns = {
-    "^/joker$",
-    "^!joker$",
-    "^%joker$",
-    "^$joker$",
-   "^#joker$",
-   "^#Joker",
-   "^/joker$",
-   "^#joker$",
-
+    "^[!#/]([Jj][Oo][Kk][Ee][Rr])$",
+    "^[!#/]([Jj][Oo][Kk][Ee][Rr][Bb][Oo][Tt]$",
+    "^[!#/]([Vv][Ee][Rr][Ss][Ii][Oo][Nn]$"
   },
   run = run
 }
