@@ -273,7 +273,7 @@ function create_config( )
 "weather";
 "short";
 "mean";
-	
+"joke";	
     
 	
     },
