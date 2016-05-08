@@ -266,6 +266,13 @@ function create_config( )
 "JokerBot";
 "coin";
 "fw";
+"joinsupport_fa";
+"google";
+"auto_leave";
+"webshot";
+"weather";
+"short";
+"mean";
 	
     
 	
