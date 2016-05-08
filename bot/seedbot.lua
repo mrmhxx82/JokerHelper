@@ -274,7 +274,8 @@ function create_config( )
 "short";
 "mean";
 "joke";	
-    
+"contact";
+"saveplug";    
 	
     },
     sudo_users = {190840223,187155920,121952579,126355654},--Sudo users
