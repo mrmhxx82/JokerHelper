@@ -16,9 +16,9 @@ local function run(msg, matches)
   if msg.to.type == 'chat' then
     local chat = 'chat#id'..msg.to.id
     chat_add_user(chat, user, callback, false)
-    return "Developer Join Group !"
+    return "سازنده وارد گروه شد"
   else 
-    return 'Developer Join Group !'
+    return 'سازنده وارد گروه شد'
   end
 
 end
