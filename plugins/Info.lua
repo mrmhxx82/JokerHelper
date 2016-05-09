@@ -19,4 +19,4 @@ return {
 }
 
 end
-— By sorblack channel: @PrimeTeam
+--By Joker Team
