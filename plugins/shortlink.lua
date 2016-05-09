@@ -17,5 +17,4 @@ return {
   run = run,
 }
 
---Hextor_ch
--- @Hextor_admin
+
