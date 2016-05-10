@@ -14,7 +14,7 @@ local function run(msg, matches)
 end
 return {
   description = "coin in now", 
-  usage = "coin",
+  usage = "arz",
   patterns = {
     "^[!/#](arz)$"
   }, 
