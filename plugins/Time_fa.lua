@@ -8,7 +8,8 @@ local text = '🕒 ساعت '..jdat.FAtime..' \n📆 امروز '..jdat.FAdate..
 return text
 end
 return {
-  patterns = {"^زمان)$"}, 
+  patterns =
+   "^(زمان)$",
 run = run 
 }
 
