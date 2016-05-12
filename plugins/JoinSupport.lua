@@ -11,8 +11,6 @@ end
 return {
     patterns = {
     "^[!/#](joinsupport)$",
-    "^(عضویت در پشتیبانی)$",
-     },
     run = run
 }
 end
