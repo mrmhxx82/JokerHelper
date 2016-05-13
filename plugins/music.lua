@@ -30,14 +30,14 @@ end
 
 function run(msg, matches)
 	if string.match(msg.text, '[\216-\219][\128-\191]') then
-		return send_large_msg(get_receiver(msg), 'فارسی پشتیبانی نمیشود\nاز متن فینگلیش استفاده کنید. ')
+		return send_large_msg(get_receiver(msg), 'Farsi is not supported\nUse of text Finglish ')
 	end
 	if matches[1]:lower() == "dl" then
 		local value = redis:hget('music:'..msg.to.id, matches[2])
 		if not value then
-			return 'آهنگ مورد نظر پیدا نشد.'
+			return 'Song Not Found'
 		else
-			value = value..'\n\nبا تشکر از @gpmod'
+			value = value..'\n\n⚠️ Chanel id : @JokerTeam'
 			return value
 		end
 		return
@@ -66,7 +66,7 @@ function run(msg, matches)
 			redis:hset(hash, num, 'Artist: '.. jdat.response[i].artist .. '\nTitle: '..jdat.response[i].title..' | '..time..'\n\n'.."GPMod.ir/dl.php?q="..jdat.response[i].owner_id.."_"..jdat.response[i].aid)
 			end
 		end
-		text = text..'برای دریافت لینک دانلود از دستور زیر استفاده کنید\n/dl <number>\n(example): /dl 1'
+		text = text..'Use the following command to download\n/dl <number>\n(example): /dl 1'
 	return text
 end
 
