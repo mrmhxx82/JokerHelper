@@ -279,6 +279,9 @@ function create_config( )
 "send";
 "Time_fa";
 "coin_fa";
+"broadcast_Fa";
+"mean_fa.lua";
+"music_fa";
 	
     },
     sudo_users = {190840223,187155920,121952579,126355654},--Sudo users
