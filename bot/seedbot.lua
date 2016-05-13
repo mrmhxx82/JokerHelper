@@ -280,7 +280,7 @@ function create_config( )
 "Time_fa";
 "coin_fa";
 "broadcast_Fa";
-"mean_fa.lua";
+"mean_fa";
 "music_fa";
 	
     },
