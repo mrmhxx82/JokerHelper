@@ -3,14 +3,14 @@ do
     local support = '1058321095'
     local data = load_data(_config.moderation.data)
     local name_log = user_print_name(msg.from)
-        if matches[1] == 'joinsupport' then
+        if matches[1] == 'jsupport' then
         local group_link = data[tostring(support)]['settings']['set_link']
-    return "⭕️ لینک ساپورت جوکر بات:\n"..group_link
+    return "> Joker Anti Spam Support:\n"..group_link
     end
 end
 return {
     patterns = {
-    "^[!/#](joinsupport)$",
+    "^[!/#](jsupport)$",
     run = run
 }
 end
