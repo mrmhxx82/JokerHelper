@@ -4,7 +4,7 @@ local function musiclink(msg, musicid)
 	if not value then
 		return
 	else
-		value = value..'\n\nبا تشکر از @gpmod'
+		value = value..'\n\n⚠️ Chanel id : @JokerTeam'
 		return value
 	end
 end
