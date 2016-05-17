@@ -1,5 +1,6 @@
---by @softplugin
+#!/bin/bash
 
+# Some script variables
 OK=0
 BAD=0
 NONVOLUNTARY=1
@@ -8,14 +9,13 @@ VOLUNTARY=1
 VOLUNTARYCHECK=0
 I=1
 BOT=JokerBot
-RELOADTIME=15
-
+RELOADTIME=5
 
 function tmux_mode {
 
 sleep 0.5
 clear
-# Space invaders thanks to github.com/windelicato
+# Space invaders thanks to github.com/Mehdi-HS
 f=3 b=4
 for j in f b; do
   for i in {0..7}; do
@@ -27,20 +27,15 @@ rst=$'\e[0m'
 
 cat << EOF
 
- $f1  ▀▄   ▄▀     $f2 ▄▄▄████▄▄▄    $f3  ▄██▄     $f4  ▀▄   ▄▀     $f5 ▄▄▄████▄▄▄    $f6  ▄██▄  $rst
- $f1 ▄█▀███▀█▄    $f2███▀▀██▀▀███   $f3▄█▀██▀█▄   $f4 ▄█▀███▀█▄    $f5███▀▀██▀▀███   $f6▄█▀██▀█▄$rst
- $f1█▀███████▀█   $f2▀▀███▀▀███▀▀   $f3▀█▀██▀█▀   $f4█▀███████▀█   $f5▀▀███▀▀███▀▀   $f6▀█▀██▀█▀$rst
- $f1▀ ▀▄▄ ▄▄▀ ▀   $f2 ▀█▄ ▀▀ ▄█▀    $f3▀▄    ▄▀   $f4▀ ▀▄▄ ▄▄▀ ▀   $f5 ▀█▄ ▀▀ ▄█▀    $f6▀▄    ▄▀$rst
- 
+ $f1  @Black_CH     $f2 @Black_CH     $f3  @Black_CH   $f4  @Black_CH    $f5 @Black_CH    $f6 @Black_CH  $rst
+
 EOF
-echo -e "                \e[100m                Steady script           \e[00;37;40m"
-echo -e "               \e[01;34m                    by iicc                \e[00;37;40m"
+echo -e "                \e[100m                JokerAnti script           \e[00;37;40m"
+echo -e "               \e[01;34m                 By MehdiHS                \e[00;37;40m"
 echo ""
 cat << EOF
- $bld$f1▄ ▀▄   ▄▀ ▄   $f2 ▄▄▄████▄▄▄    $f3  ▄██▄     $f4▄ ▀▄   ▄▀ ▄   $f5 ▄▄▄████▄▄▄    $f6  ▄██▄  $rst
- $bld$f1█▄█▀███▀█▄█   $f2███▀▀██▀▀███   $f3▄█▀██▀█▄   $f4█▄█▀███▀█▄█   $f5███▀▀██▀▀███   $f6▄█▀██▀█▄$rst
- $bld$f1▀█████████▀   $f2▀▀▀██▀▀██▀▀▀   $f3▀▀█▀▀█▀▀   $f4▀█████████▀   $f5▀▀▀██▀▀██▀▀▀   $f6▀▀█▀▀█▀▀$rst
- $bld$f1 ▄▀     ▀▄    $f2▄▄▀▀ ▀▀ ▀▀▄▄   $f3▄▀▄▀▀▄▀▄   $f4 ▄▀     ▀▄    $f5▄▄▀▀ ▀▀ ▀▀▄▄   $f6▄▀▄▀▀▄▀▄$rst
+ $bld$f1 @Black_CH   $f2 @Black_CH    $f3  @Black_CH    $f4 @Black_CH   $f5 @Black_CH    $f6  @Black_CH  $rst
+
 
 EOF
 
@@ -49,7 +44,7 @@ sleep 1.2
 # Checking if the bot folder is in HOME
 echo -e "$bld$f4 CHECKING INSTALLED BOT...$rst"
 sleep 0.5
-ls ../ | grep $BOT > /dev/null
+ls ../ | grep $BOT 2>/dev/null
 if [ $? != 0 ]; then
   echo -e "$f1 ERROR: BOT: $BOT NOT FOUND IN YOUR HOME DIRECTORY$rst"
   sleep 4
@@ -58,11 +53,14 @@ fi
 echo -e "$f2 $BOT FOUND IN YOUR HOME DIRECTORY$rst"
 sleep 0.5
 
-   echo ""                _   _ _______  _______ ___  ____  
-echo -e "\033[38;5;208m  | | | | ____\ \/ /_   _/ _ \|  _ \          \033[0;00m"
-echo -e "\033[38;5;208m  | |_| |  _|  \  /  | || | | | |_) |         \033[0;00m"
-echo -e "\033[38;5;208m  |  _  | |___ /  \  | || |_| |  _ <          \033[0;00m"
-echo -e "\033[38;5;208m  |_| |_|_____/_/\_\ |_| \___/|_| \_\         \033[0;00m"
+
+echo ""
+echo -e "\033[38;5;208m     > Channel : @Black_CH                         \033[0;00m"
+echo -e "\033[38;5;208m     > Bot Developer : Mohsen                   \033[0;00m"
+echo -e "\033[38;5;208m     > AntiCrash By : @MehdiHS                   \033[0;00m"
+echo -e "\033[38;5;208m     > Bot ID : @JokerAnti                         \033[0;00m"
+echo -e "\033[38;5;208m     > Github : GitHub.com/Mehdi-HS/BlackPlus      \033[0;00m"
+echo -e "\033[38;5;208m                                                   \033[0;00m"
 
 sleep 1.5
 echo -e "$bld$f4 CHECKING PROCESSES...$rst"
@@ -78,7 +76,7 @@ sleep 0.9
 # Opening new tmux in a daemon
 echo -e "$bld$f4 ATTACHING TMUX AS DAEMON...$rst"
 # It is recommended to clear cli status always before starting the bot
-rm ../.telegram-cli/state  > /dev/null 
+rm ../.telegram-cli/state 2>/dev/null
 # Nested TMUX sessions trick 
 TMUX= tmux new-session -d -s $BOT "./launch.sh"
 sleep 1.3
@@ -110,7 +108,7 @@ while true; do
 		if [ $I -ge 3 ]; then
 			kill $CLIPID
 			tmux kill-session -t $BOT
-			rm ../.telegram-cli/state  > /dev/null 
+			rm ../.telegram-cli/state 2>/dev/null
 			NONVOLUNTARY=0
 			NONVOLUNTARYCHECK=0
 			VOLUNTARY=0
@@ -131,7 +129,7 @@ while true; do
 		BAD=$(( $BAD + 1 ))
 		sleep 1
 		
-		rm ../.telegram-cli/state  > /dev/null 
+		rm ../.telegram-cli/state 2>/dev/null 
 
 		kill $CLIPID
 		tmux kill-session -t $BOT
@@ -165,7 +163,7 @@ function screen_mode {
 clear
 sleep 0.5
 
-# Space invaders thanks to github.com/windelicato
+# Space invaders thanks to github.com/mehdi-hs
 f=3 b=4
 for j in f b; do
   for i in {0..7}; do
@@ -177,20 +175,14 @@ rst=$'\e[0m'
 
 cat << EOF
 
- $f1  ▀▄   ▄▀     $f2 ▄▄▄████▄▄▄    $f3  ▄██▄     $f4  ▀▄   ▄▀     $f5 ▄▄▄████▄▄▄    $f6  ▄██▄  $rst
- $f1 ▄█▀███▀█▄    $f2███▀▀██▀▀███   $f3▄█▀██▀█▄   $f4 ▄█▀███▀█▄    $f5███▀▀██▀▀███   $f6▄█▀██▀█▄$rst
- $f1█▀███████▀█   $f2▀▀███▀▀███▀▀   $f3▀█▀██▀█▀   $f4█▀███████▀█   $f5▀▀███▀▀███▀▀   $f6▀█▀██▀█▀$rst
- $f1▀ ▀▄▄ ▄▄▀ ▀   $f2 ▀█▄ ▀▀ ▄█▀    $f3▀▄    ▄▀   $f4▀ ▀▄▄ ▄▄▀ ▀   $f5 ▀█▄ ▀▀ ▄█▀    $f6▀▄    ▄▀$rst
+ $f1  @Black_CH     $f2 @Black_CH     $f3  @Black_CH   $f4  @Black_CH    $f5 @Black_CH    $f6 @Black_CH  $rst
  
 EOF
-echo -e "                \e[100m                Steady script           \e[00;37;40m"
-echo -e "               \e[01;34m                    by iicc                \e[00;37;40m"
+echo -e "                \e[100m                JokerAnti script           \e[00;37;40m"
+echo -e "               \e[01;34m                    by MehdiHS               \e[00;37;40m"
 echo ""
 cat << EOF
- $bld$f1▄ ▀▄   ▄▀ ▄   $f2 ▄▄▄████▄▄▄    $f3  ▄██▄     $f4▄ ▀▄   ▄▀ ▄   $f5 ▄▄▄████▄▄▄    $f6  ▄██▄  $rst
- $bld$f1█▄█▀███▀█▄█   $f2███▀▀██▀▀███   $f3▄█▀██▀█▄   $f4█▄█▀███▀█▄█   $f5███▀▀██▀▀███   $f6▄█▀██▀█▄$rst
- $bld$f1▀█████████▀   $f2▀▀▀██▀▀██▀▀▀   $f3▀▀█▀▀█▀▀   $f4▀█████████▀   $f5▀▀▀██▀▀██▀▀▀   $f6▀▀█▀▀█▀▀$rst
- $bld$f1 ▄▀     ▀▄    $f2▄▄▀▀ ▀▀ ▀▀▄▄   $f3▄▀▄▀▀▄▀▄   $f4 ▄▀     ▀▄    $f5▄▄▀▀ ▀▀ ▀▀▄▄   $f6▄▀▄▀▀▄▀▄$rst
+ $bld$f1 @Black_CH   $f2 @Black_CH    $f3  @Black_CH    $f4 @Black_CH   $f5 @Black_CH    $f6  @Black_CH  $rst
 
 EOF
 
@@ -199,7 +191,7 @@ sleep 1.3
 # Checking if the bot folder is in HOME
 echo -e "$bld$f4 CHECKING INSTALLED BOT...$rst"
 sleep 0.5
-ls ../ | grep $BOT > /dev/null
+ls ../ | grep $BOT 2>/dev/null
 if [ $? != 0 ]; then
   echo -e "$f1 ERROR: BOT: $BOT NOT FOUND IN YOUR HOME DIRECTORY$rst"
   sleep 4
@@ -209,12 +201,12 @@ echo -e "$f2 $BOT FOUND IN YOUR HOME DIRECTORY$rst"
 sleep 0.5
 
 
-   echo ""                _   _ _______  _______ ___  ____  
-echo -e "\033[38;5;208m  | | | | ____\ \/ /_   _/ _ \|  _ \          \033[0;00m"
-echo -e "\033[38;5;208m  | |_| |  _|  \  /  | || | | | |_) |         \033[0;00m"
-echo -e "\033[38;5;208m  |  _  | |___ /  \  | || |_| |  _ <          \033[0;00m"
-echo -e "\033[38;5;208m  |_| |_|_____/_/\_\ |_| \___/|_| \_\         \033[0;00m"
-
+echo -e "\033[38;5;208m     > Channel : @Black_CH                         \033[0;00m"
+echo -e "\033[38;5;208m     > Bot Developer : Mohsen                   \033[0;00m"
+echo -e "\033[38;5;208m     > AntiCrash By : @MehdiHS                   \033[0;00m"
+echo -e "\033[38;5;208m     > Bot ID : @JokerAnti                         \033[0;00m"
+echo -e "\033[38;5;208m     > Github : GitHub.com/Mehdi-HS/BlackPlus      \033[0;00m"
+echo -e "\033[38;5;208m                                                     \033[0;00m"
 
 # Starting preliminar setup
 sleep 1.5
@@ -258,7 +250,7 @@ done
 # I had some weird errors, so I had to do this silly fix:
 SCREENPID1=`cat SC1`
 SCREENPID2=`cat SC2`
-rm SC1 SC2 >/dev/null
+rm SC1 SC2 2>/dev/null
 
 sleep 0.7
 CLIPID=`ps -e | grep telegram-cli | sed 's/^[[:space:]]*//' | cut -f 1 -d" "`
@@ -284,7 +276,7 @@ sleep 1
 # Opening new screen in a daemon
 echo -e "$bld$f4 ATTACHING SCREEN AS DAEMON...$rst"
 # Better to clear cli status before
-rm ../.telegram-cli/state  > /dev/null 
+rm ../.telegram-cli/state 2>/dev/null
 screen -d -m bash launch.sh
 
 sleep 1.3
@@ -338,11 +330,21 @@ sleep 5
 	echo ""
 	
 	cat /proc/$CLIPID/task/$CLIPID/status > CHECK
+	if [ $? != 0 ]; then
+		I=$(( $I + 1 ))
+		if [ $I -ge 3 ]; then
+			rm ../.telegram-cli/state 2>/dev/null
+			NONVOLUNTARY=0
+			NONVOLUNTARYCHECK=0
+			VOLUNTARY=0
+			VOLUNTARYCHECK=0
+		fi
+	else
+		I=1
+	fi
 	VOLUNTARYCHECK=`grep voluntary CHECK | head -1 | cut -f 2 -d":" | sed 's/^[[:space:]]*//'`
 	NONVOLUNTARYCHECK=`grep nonvoluntary CHECK | cut -f 2 -d":" | sed 's/^[[:space:]]*//'`
-	#echo -e "NONVOLUNTARYCHECK CTXT SWITCHES: $NONVOLUNTARYCHECK"
-	#echo -e "NONVOLUNTARY CTXT SWITCHES: $NONVOLUNTARY"
-	
+
 	if [ $NONVOLUNTARY != $NONVOLUNTARYCHECK ] || [ $VOLUNTARY != $VOLUNTARYCHECK ]; then
 		echo -e "$f5 BOT RUNNING!$rst"
 		OK=$(( $OK + 1 ))
@@ -352,7 +354,7 @@ sleep 5
 		BAD=$(( $BAD + 1 ))
 		sleep 1
 		
-		rm ../.telegram-cli/state  > /dev/null 
+		rm ../.telegram-cli/state 2>/dev/null
 
 		kill $CLIPID
 		kill $SCREEN
@@ -394,14 +396,14 @@ sleep 5
 
 function tmux_detached {
 clear
-TMUX= tmux new-session -d -s script_detach "bash steady.sh -t"
+TMUX= tmux new-session -d -s script_detach "bash jokeranti.sh -t"
 echo -e "\e[1m"
 echo -e ""
 echo "Bot running in the backgroud with TMUX"
 echo ""
 echo -e "\e[0m"
 sleep 3
-tmux kill-session script
+tmux kill-session script 2>/dev/null
 exit 1
 }
 
@@ -477,15 +479,15 @@ while getopts ":tsTSih" opt; do
 	i)
 	echo -e "\e[1m"
 	echo -e ""
-	echo "steady.sh bash script v1.2 iicc 2016 DBTeam" >&2
+	echo "jokeranti.sh bash script by MehdiHS" >&2
 	echo ""
 	echo -e "\e[0m"
-echo -e "\033[38;5;208m  | | | | ____\ \/ /_   _/ _ \|  _ \          \033[0;00m"
-echo -e "\033[38;5;208m  | |_| |  _|  \  /  | || | | | |_) |         \033[0;00m"
-echo -e "\033[38;5;208m  |  _  | |___ /  \  | || |_| |  _ <          \033[0;00m"
-echo -e "\033[38;5;208m  |_| |_|_____/_/\_\ |_| \___/|_| \_\         \033[0;00m"
-echo ""
-
+echo -e "\033[38;5;208m     > Channel : @Black_CH                         \033[0;00m"
+echo -e "\033[38;5;208m     > Bot Developer : Mohsen                   \033[0;00m"
+echo -e "\033[38;5;208m     > AntiCrash By : @MehdiHS                   \033[0;00m"
+echo -e "\033[38;5;208m     > Bot ID : @JokerAnti                         \033[0;00m"
+echo -e "\033[38;5;208m     > Github : GitHub.com/Mehdi-HS/BlackPlus      \033[0;00m"
+echo -e "\033[38;5;208m   
 	exit 1
       ;;
 	h)
@@ -493,12 +495,12 @@ echo ""
 	echo -e ""
 	echo "Usage:"
 	echo -e ""
-	echo "steady.sh -t"
-	echo "steady.sh -s"
-	echo "steady.sh -T"
-	echo "steady.sh -S"
-	echo "steady.sh -h"
-	echo "steady.sh -i"
+	echo "jokeranti.sh -t"
+	echo "jokeranti.sh -s"
+	echo "jokeranti.sh -T"
+	echo "jokeranti.sh -S"
+	echo "jokeranti.sh -h"
+	echo "jokeranti.sh -i"
     echo ""
 	echo "Options:"
 	echo ""
@@ -526,8 +528,3 @@ echo ""
       ;;
   esac
 done
-
-
-
-
---by @softplugin
