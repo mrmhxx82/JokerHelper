@@ -30,7 +30,7 @@ cat << EOF
  $f1  @Black_CH     $f2 @Black_CH     $f3  @Black_CH   $f4  @Black_CH    $f5 @Black_CH    $f6 @Black_CH  $rst
 
 EOF
-echo -e "                \e[100m                JokerAnti script           \e[00;37;40m"
+echo -e "                \e[100m                BlackPlus script           \e[00;37;40m"
 echo -e "               \e[01;34m                 By MehdiHS                \e[00;37;40m"
 echo ""
 cat << EOF
@@ -56,9 +56,8 @@ sleep 0.5
 
 echo ""
 echo -e "\033[38;5;208m     > Channel : @Black_CH                         \033[0;00m"
-echo -e "\033[38;5;208m     > Bot Developer : Mohsen                   \033[0;00m"
-echo -e "\033[38;5;208m     > AntiCrash By : @MehdiHS                   \033[0;00m"
-echo -e "\033[38;5;208m     > Bot ID : @JokerAnti                         \033[0;00m"
+echo -e "\033[38;5;208m     > Developer : @MehdiHS                        \033[0;00m"
+echo -e "\033[38;5;208m     > Bot ID : @BlackPlus                         \033[0;00m"
 echo -e "\033[38;5;208m     > Github : GitHub.com/Mehdi-HS/BlackPlus      \033[0;00m"
 echo -e "\033[38;5;208m                                                   \033[0;00m"
 
@@ -178,7 +177,7 @@ cat << EOF
  $f1  @Black_CH     $f2 @Black_CH     $f3  @Black_CH   $f4  @Black_CH    $f5 @Black_CH    $f6 @Black_CH  $rst
  
 EOF
-echo -e "                \e[100m                JokerAnti script           \e[00;37;40m"
+echo -e "                \e[100m                BlackPlus script           \e[00;37;40m"
 echo -e "               \e[01;34m                    by MehdiHS               \e[00;37;40m"
 echo ""
 cat << EOF
@@ -201,12 +200,12 @@ echo -e "$f2 $BOT FOUND IN YOUR HOME DIRECTORY$rst"
 sleep 0.5
 
 
+echo ""
 echo -e "\033[38;5;208m     > Channel : @Black_CH                         \033[0;00m"
-echo -e "\033[38;5;208m     > Bot Developer : Mohsen                   \033[0;00m"
-echo -e "\033[38;5;208m     > AntiCrash By : @MehdiHS                   \033[0;00m"
-echo -e "\033[38;5;208m     > Bot ID : @JokerAnti                         \033[0;00m"
+echo -e "\033[38;5;208m     > Developer : @MehdiHS                        \033[0;00m"
+echo -e "\033[38;5;208m     > Bot ID : @BlackPlus                         \033[0;00m"
 echo -e "\033[38;5;208m     > Github : GitHub.com/Mehdi-HS/BlackPlus      \033[0;00m"
-echo -e "\033[38;5;208m                                                     \033[0;00m"
+echo -e "\033[38;5;208m                                                   \033[0;00m"
 
 # Starting preliminar setup
 sleep 1.5
@@ -396,7 +395,7 @@ sleep 5
 
 function tmux_detached {
 clear
-TMUX= tmux new-session -d -s script_detach "bash jokeranti.sh -t"
+TMUX= tmux new-session -d -s script_detach "bash steady.sh -t"
 echo -e "\e[1m"
 echo -e ""
 echo "Bot running in the backgroud with TMUX"
@@ -479,15 +478,15 @@ while getopts ":tsTSih" opt; do
 	i)
 	echo -e "\e[1m"
 	echo -e ""
-	echo "jokeranti.sh bash script by MehdiHS" >&2
+	echo "steady.sh bash script v1.2 iicc 2016 DBTeam" >&2
 	echo ""
 	echo -e "\e[0m"
 echo -e "\033[38;5;208m     > Channel : @Black_CH                         \033[0;00m"
-echo -e "\033[38;5;208m     > Bot Developer : Mohsen                   \033[0;00m"
-echo -e "\033[38;5;208m     > AntiCrash By : @MehdiHS                   \033[0;00m"
-echo -e "\033[38;5;208m     > Bot ID : @JokerAnti                         \033[0;00m"
+echo -e "\033[38;5;208m     > Developer : @MehdiHS                        \033[0;00m"
+echo -e "\033[38;5;208m     > Bot ID : @BlackPlus                         \033[0;00m"
 echo -e "\033[38;5;208m     > Github : GitHub.com/Mehdi-HS/BlackPlus      \033[0;00m"
-echo -e "\033[38;5;208m   
+echo -e "\033[38;5;208m                                                   \033[0;00m"	
+echo ""
 	exit 1
       ;;
 	h)
@@ -495,12 +494,12 @@ echo -e "\033[38;5;208m
 	echo -e ""
 	echo "Usage:"
 	echo -e ""
-	echo "jokeranti.sh -t"
-	echo "jokeranti.sh -s"
-	echo "jokeranti.sh -T"
-	echo "jokeranti.sh -S"
-	echo "jokeranti.sh -h"
-	echo "jokeranti.sh -i"
+	echo "blackplus.sh -t"
+	echo "blackplus.sh -s"
+	echo "blackplus.sh -T"
+	echo "blackplus.sh -S"
+	echo "blackplus.sh -h"
+	echo "blackplus.sh -i"
     echo ""
 	echo "Options:"
 	echo ""
