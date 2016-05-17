@@ -369,10 +369,10 @@ This command will send text to [group_id]
 *Only admins and sudo can use res, setowner, commands
 ]],
     help_text = [[
-🌀 دستورات گروه
-〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+🌀 Owner Command
+------------------------------
 
-🔘 قفل تنظیمات
+🔘 Lock Settings
 
 #lock|unlock links
 #lock|unlock flood
@@ -387,6 +387,149 @@ This command will send text to [group_id]
 
 ]],
 	help_text_super =[[
+🌀 Owner Command
+〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰〰
+
+🔘 Lock Settings
+#lock|unlock links
+#lock|unlock flood
+#lock|unlock spam
+#lock|unlock arabic
+#lock|unlock member
+#lock|unlock rtl
+#lock|unlock sticker
+#lock|unlock contacts
+#lock|unlock strict
+
+🔘 Set Group Name
+#setname [msg groupname]
+
+🔘 Set Group Photo
+#setphoto
+
+🔘 Set Group Rules
+#setrules
+
+🔘 Set Group about
+#setabout
+
+🔘 Get Group Link
+#link
+
+🔘 Set Group Link
+#setlink
+
+🔘 Create New Link For Group
+#newlink
+
+🔘 Send Link To Pv (Privite Char)
+#linkpv
+
+🔘 Get Group Settings
+#settings
+
+🔘 Get Id
+#id
+
+🔘 Get Rank
+#me
+
+🔘 Get Group Rules
+#rules
+
+🔘 Get Group About
+#about
+
+🔘 Get Id Person
+#res [msg id]
+
+🔘 Add Word To BadWord (Filter)
+#addword [msg word]
+
+🔘 Remove the word of Badword
+#rw [msg word]
+
+🔘 Remove All BadWord
+#clearbadwords
+
+🔘 BadWord List
+#badwords
+
+🔘 Clean 
+#clean rules
+#clean about
+#clean modlist
+#clean mutelist
+
+🔘 Mute User
+#muteuser
+
+🔘 User Mute List
+#mutelist
+
+🔘 Item Mute List
+#muteslist
+
+🔘 mute|unmute
+#mute|unmute all
+#mute|unmute audio
+#mute|unmute gifs
+#mute|unmute photo
+#mute|unmute video
+#mute|unmute service
+
+Mute User
+🔘 مدیران
+#setadmin
+#demoteadmin
+#setowner
+#admins
+#owner
+#modlist
+#promote
+#demote
+
+🔘 Set Flood
+#setflood
+
+🔘 Remove Pm
+#del [replay]
+
+🔘 Delete group Messages
+#rm 
+
+🔘 AddSudo
+#addsudo
+
+🔘 Kick Member
+#kick [id|replay]
+
+🔘 Ban Member For Group
+#ban [id]
+
+🔘 Unban Member For Groups
+#unban
+
+🔘 Show Ban List (For Group)
+#banlist
+
+🔘 Member List
+#who
+
+🔘 Show Bot List For Group
+#bots
+
+🔘 Tools
+#voice [msg text]
+#calc [formol]
+#shortopizo [msg url]
+#nerkh 
+#music [msg musicname]
+#coin 
+#tr [lang] [text]
+
+🔘 Bot About
+#joker
 
 
 ]],
