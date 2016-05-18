@@ -19,15 +19,15 @@ local function check_member_super(cb_extra, success, result)
         settings = {
           set_name = string.gsub(msg.to.title, '_', ' '),
 		  lock_arabic = 'no',
-		  lock_link = "no",
+		  lock_link = "yes",
           flood = 'yes',
 		  lock_spam = 'yes',
-		  lock_sticker = 'no',
+		  lock_sticker = 'yes',
 		  member = 'no',
-		  public = 'no',
+		  public = 'yes',
 		  lock_rtl = 'no',
 		  lock_tgservice = 'yes',
-		  lock_contacts = 'no',
+		  lock_contacts = 'yes',
 		  strict = 'no'
         }
       }
@@ -565,7 +565,7 @@ end
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "⚠️ Group Settings : \n🔰 Lock links : "..settings.lock_link.."\n🔰 Lock flood: "..settings.flood.."\n🔰 Flood sensitivity : "..NUM_MSG_MAX.."\n🔰 Lock spam: "..settings.lock_spam.."\n🔰 Lock Arabic: "..settings.lock_arabic.."\n🔰 Lock Member: "..settings.lock_member.."\n🔰 Lock RTL: "..settings.lock_rtl.."\n🔰 Lock Tgservice : "..settings.lock_tgservice.."\n🔰 Lock sticker: "..settings.lock_sticker.."\n🔰 Public: "..settings.public.."\n🔰 Strict settings: "..settings.strict.."\n-------------------------------------------\n⚠️ Group Model: #SuperGroup \n⚠️ Sudo Bot : @Mr_Mh58 | @FucksoN \n🔰 Chanel Id : @FUCKSON_CH
+  local text = "⚠️ Group Settings : \n🔰 Lock links : "..settings.lock_link.."\n🔰 Lock flood: "..settings.flood.."\n🔰 Flood sensitivity : "..NUM_MSG_MAX.."\n🔰 Lock spam: "..settings.lock_spam.."\n🔰 Lock Arabic: "..settings.lock_arabic.."\n🔰 Lock Member: "..settings.lock_member.."\n🔰 Lock RTL: "..settings.lock_rtl.."\n🔰 Lock Tgservice : "..settings.lock_tgservice.."\n🔰 Lock sticker: "..settings.lock_sticker.."\n🔰 Public: "..settings.public.."\n🔰 Strict settings: "..settings.strict.."\n-------------------------------------------\n⚠️ Group Model: #SuperGroup \n⚠️ Sudo Bot : @Mr_Mh58 | @FucksoN \n🔰 Chanel Id : @FUCKS"ON_CH
   return text
 end
 
@@ -1090,7 +1090,7 @@ local function set_supergroup_photo(msg, success, result)
     channel_set_photo(receiver, file, ok_cb, false)
     data[tostring(msg.to.id)]['settings']['set_photo'] = file
     save_data(_config.moderation.data, data)
-    send_large_msg(receiver, '☢ Photos for Group set', ok_cb, false)
+    send_large_msg(receiver, 'Photo saved!', ok_cb, false)
   else
     print('Error downloading: '..msg.id)
     send_large_msg(receiver, 'Failed, please try again!', ok_cb, false)
@@ -1100,7 +1100,7 @@ end
 --Run function
 local function run(msg, matches)
 	if msg.to.type == 'chat' then
-		if matches[1] == 'tsg' then
+		if matches[1] == 'tosuper' then
 			if not is_admin1(msg) then
 				return
 			end
@@ -1108,7 +1108,7 @@ local function run(msg, matches)
 			chat_upgrade(receiver, ok_cb, false)
 		end
 	elseif msg.to.type == 'channel'then
-		if matches[1] == 'tsg' then
+		if matches[1] == 'tosuper' then
 			if not is_admin1(msg) then
 				return
 			end
@@ -1268,7 +1268,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return "🔰 SuperGroup Name: " ..string.gsub(msg.to.print_name, "_", " ").. "\n⚠️ SuperGroup Id: "..msg.to.id
+				return "SuperGroup ID for " ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n"..msg.to.id
 			end
 		end
 
@@ -1283,7 +1283,7 @@ local function run(msg, matches)
 			local function callback_link (extra , success, result)
 			local receiver = get_receiver(msg)
 				if success == 0 then
-					send_large_msg(receiver, '⚠️ Not Found Link Creator\n🔻 Set Link Fot Group With #setlink Command')
+					send_large_msg(receiver, '*Error: Failed to retrieve link* \nReason: Not creator.\n\nIf you have the link, please use /setlink to set it')
 					data[tostring(msg.to.id)]['settings']['set_link'] = nil
 					save_data(_config.moderation.data, data)
 				else
@@ -1299,14 +1299,14 @@ local function run(msg, matches)
 		if matches[1] == 'setlink' and is_owner(msg) then
 			data[tostring(msg.to.id)]['settings']['set_link'] = 'waiting'
 			save_data(_config.moderation.data, data)
-			return '🔰 Send Group Link'
+			return 'Please send the new group link now'
 		end
 
 		if msg.text then
 			if msg.text:match("^(https://telegram.me/joinchat/%S+)$") and data[tostring(msg.to.id)]['settings']['set_link'] == 'waiting' and is_owner(msg) then
 				data[tostring(msg.to.id)]['settings']['set_link'] = msg.text
 				save_data(_config.moderation.data, data)
-				return "⚠️ Link Set"
+				return "New link set"
 			end
 		end
 
@@ -1316,10 +1316,10 @@ local function run(msg, matches)
 			end
 			local group_link = data[tostring(msg.to.id)]['settings']['set_link']
 			if not group_link then
-				return "⚠️ Not Found Group Link\n🔰 Create New Link For Group With #newlink Command \n☢ Or Set Link For Group With #setlink Command "
+				return "Create a link using /newlink first!\n\nOr if I am not creator use /setlink to set your link"
 			end
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-			return "☢ Group Link For "..msg.to.print_name.."\n----------------------------------------------"..group_link
+			return "Group link:\n"..group_link
 		end
 
 		if matches[1] == "invite" and is_sudo(msg) then
@@ -1580,7 +1580,7 @@ local function run(msg, matches)
 			data[tostring(msg.to.id)]['settings']['set_photo'] = 'waiting'
 			save_data(_config.moderation.data, data)
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] started setting new SuperGroup photo")
-			return '⚠️ Send Group Photo'
+			return 'Please send the new group photo now'
 		end
 
 		if matches[1] == 'clean' then
@@ -2043,7 +2043,7 @@ return {
 	"^[#!/]([Kk]icked)$",
     "^[#!/]([Bb]lock) (.*)",
 	"^[#!/]([Bb]lock)",
-	"^[#!/]([Tt]sg)$",
+	"^[#!/]([Tt]osuper)$",
 	"^[#!/]([Ii][Dd])$",
 	"^[#!/]([Ii][Dd]) (.*)$",
 	"^[#!/]([Kk]ickme)$",
