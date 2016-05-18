@@ -6,12 +6,12 @@ local function mathjs(exp)
   local b,c = http.request(url)
   local text = nil
   if c == 200 then
-    text = 'جواب '..b
+    text = '🔰 Answer : '..b
   
   elseif c == 400 then
     text = b
   else
-    text = '❗️ ارور ❗️'
+    text = '🔰 Error️'
   end
   return text
 end
