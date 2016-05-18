@@ -39,7 +39,7 @@ local function check_member_super(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id
       save_data(_config.moderation.data, data)
-	  local text = '🔰 SuperGroup Added !'
+	  local text = 'SuperGroup has been added!'
       return reply_msg(msg.id, text, ok_cb, false)
     end
   end
@@ -189,11 +189,11 @@ local function lock_group_links(msg, data, target)
   end
   local group_link_lock = data[tostring(target)]['settings']['lock_link']
   if group_link_lock == 'yes' then
-    return '⚠️ Link posting is already locked'
+    return 'Link posting is already locked'
   else
     data[tostring(target)]['settings']['lock_link'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '🔰 Link posting has been locked'
+    return 'Link posting has been locked'
   end
 end
 
@@ -203,11 +203,11 @@ local function unlock_group_links(msg, data, target)
   end
   local group_link_lock = data[tostring(target)]['settings']['lock_link']
   if group_link_lock == 'no' then
-    return '⚠️ Link posting is not locked'
+    return 'Link posting is not locked'
   else
     data[tostring(target)]['settings']['lock_link'] = 'no'
     save_data(_config.moderation.data, data)
-    return '🔰 Link posting has been unlocked'
+    return 'Link posting has been unlocked'
   end
 end
 
@@ -220,11 +220,11 @@ local function lock_group_spam(msg, data, target)
   end
   local group_spam_lock = data[tostring(target)]['settings']['lock_spam']
   if group_spam_lock == 'yes' then
-    return '⚠️ SuperGroup spam is already locked'
+    return 'SuperGroup spam is already locked'
   else
     data[tostring(target)]['settings']['lock_spam'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '🔰 SuperGroup spam has been locked'
+    return 'SuperGroup spam has been locked'
   end
 end
 
@@ -234,11 +234,11 @@ local function unlock_group_spam(msg, data, target)
   end
   local group_spam_lock = data[tostring(target)]['settings']['lock_spam']
   if group_spam_lock == 'no' then
-    return '⚠️ SuperGroup spam is not locked'
+    return 'SuperGroup spam is not locked'
   else
     data[tostring(target)]['settings']['lock_spam'] = 'no'
     save_data(_config.moderation.data, data)
-    return '⚠️ SuperGroup spam has been unlocked'
+    return 'SuperGroup spam has been unlocked'
   end
 end
 
@@ -248,11 +248,11 @@ local function lock_group_flood(msg, data, target)
   end
   local group_flood_lock = data[tostring(target)]['settings']['flood']
   if group_flood_lock == 'yes' then
-    return '⚠️ Flood is already locked'
+    return 'Flood is already locked'
   else
     data[tostring(target)]['settings']['flood'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '🔰 Flood has been locked'
+    return 'Flood has been locked'
   end
 end
 
@@ -262,11 +262,11 @@ local function unlock_group_flood(msg, data, target)
   end
   local group_flood_lock = data[tostring(target)]['settings']['flood']
   if group_flood_lock == 'no' then
-    return '⚠️ Flood is not locked'
+    return 'Flood is not locked'
   else
     data[tostring(target)]['settings']['flood'] = 'no'
     save_data(_config.moderation.data, data)
-    return '🔰 Flood has been unlocked'
+    return 'Flood has been unlocked'
   end
 end
 
@@ -276,11 +276,11 @@ local function lock_group_arabic(msg, data, target)
   end
   local group_arabic_lock = data[tostring(target)]['settings']['lock_arabic']
   if group_arabic_lock == 'yes' then
-    return '⚠️ Arabic is already locked'
+    return 'Arabic is already locked'
   else
     data[tostring(target)]['settings']['lock_arabic'] = 'yes'
     save_data(_config.moderation.data, data)
-    return '🔰 Arabic has been locked'
+    return 'Arabic has been locked'
   end
 end
 
@@ -290,11 +290,11 @@ local function unlock_group_arabic(msg, data, target)
   end
   local group_arabic_lock = data[tostring(target)]['settings']['lock_arabic']
   if group_arabic_lock == 'no' then
-    return '⚠️ Arabic/Persian is already unlocked'
+    return 'Arabic/Persian is already unlocked'
   else
     data[tostring(target)]['settings']['lock_arabic'] = 'no'
     save_data(_config.moderation.data, data)
-    return '🔰 Arabic/Persian has been unlocked'
+    return 'Arabic/Persian has been unlocked'
   end
 end
 
@@ -304,12 +304,12 @@ local function lock_group_membermod(msg, data, target)
   end
   local group_member_lock = data[tostring(target)]['settings']['lock_member']
   if group_member_lock == 'yes' then
-    return '⚠️ SuperGroup members are already locked'
+    return 'SuperGroup members are already locked'
   else
     data[tostring(target)]['settings']['lock_member'] = 'yes'
     save_data(_config.moderation.data, data)
   end
-  return '🔰 SuperGroup members has been locked'
+  return 'SuperGroup members has been locked'
 end
 
 local function unlock_group_membermod(msg, data, target)
@@ -318,11 +318,11 @@ local function unlock_group_membermod(msg, data, target)
   end
   local group_member_lock = data[tostring(target)]['settings']['lock_member']
   if group_member_lock == 'no' then
-    return '⚠️ SuperGroup members are not locked'
+    return 'SuperGroup members are not locked'
   else
     data[tostring(target)]['settings']['lock_member'] = 'no'
     save_data(_config.moderation.data, data)
-    return '🔰 SuperGroup members has been unlocked'
+    return 'SuperGroup members has been unlocked'
   end
 end
 
@@ -565,7 +565,7 @@ end
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "⚠️ Group Settings : \n🔰 Lock links : "..settings.lock_link.."\n🔰 Lock flood: "..settings.flood.."\n🔰 Flood sensitivity : "..NUM_MSG_MAX.."\n🔰 Lock spam: "..settings.lock_spam.."\n🔰 Lock Arabic: "..settings.lock_arabic.."\n🔰 Lock Member: "..settings.lock_member.."\n🔰 Lock RTL: "..settings.lock_rtl.."\n🔰 Lock Tgservice : "..settings.lock_tgservice.."\n🔰 Lock sticker: "..settings.lock_sticker.."\n🔰 Public: "..settings.public.."\n🔰 Strict settings: "..settings.strict.."\n-------------------------------------------\n⚠️ Group Model: #SuperGroup \n⚠️ Sudo Bot : @Mr_Mh58 | @FucksoN \n🔰 Chanel Id : @FUCKSON_CH 
+  local text = "⚠️ Group Settings : \n🔰 Lock links : "..settings.lock_link.."\n🔰 Lock flood: "..settings.flood.."\n🔰 Flood sensitivity : "..NUM_MSG_MAX.."\n🔰 Lock spam: "..settings.lock_spam.."\n🔰 Lock Arabic: "..settings.lock_arabic.."\n🔰 Lock Member: "..settings.lock_member.."\n🔰 Lock RTL: "..settings.lock_rtl.."\n🔰 Lock Tgservice : "..settings.lock_tgservice.."\n🔰 Lock sticker: "..settings.lock_sticker.."\n🔰 Public: "..settings.public.."\n🔰 Strict settings: "..settings.strict.."\n-------------------------------------------\n⚠️ Group Model: #SuperGroup \n⚠️ Sudo Bot : @Mr_Mh58 | @FucksoN \n🔰 Chanel Id : @FUCKSON_CH
   return text
 end
 
@@ -1100,7 +1100,7 @@ end
 --Run function
 local function run(msg, matches)
 	if msg.to.type == 'chat' then
-		if matches[1] == 'tosuper' then
+		if matches[1] == 'tsg' then
 			if not is_admin1(msg) then
 				return
 			end
@@ -1108,7 +1108,7 @@ local function run(msg, matches)
 			chat_upgrade(receiver, ok_cb, false)
 		end
 	elseif msg.to.type == 'channel'then
-		if matches[1] == 'tosuper' then
+		if matches[1] == 'tsg' then
 			if not is_admin1(msg) then
 				return
 			end
@@ -1126,7 +1126,7 @@ local function run(msg, matches)
 				return
 			end
 			if is_super_group(msg) then
-				return reply_msg(msg.id, '🔰 SuperGroup already has Added', ok_cb, false)
+				return reply_msg(msg.id, 'SuperGroup is already added.', ok_cb, false)
 			end
 			print("SuperGroup "..msg.to.print_name.."("..msg.to.id..") added")
 			savelog(msg.to.id, name_log.." ["..msg.from.id.."] added SuperGroup")
@@ -1269,7 +1269,6 @@ local function run(msg, matches)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
 				return "🔰 SuperGroup Name: " ..string.gsub(msg.to.print_name, "_", " ").. "\n⚠️ SuperGroup Id: "..msg.to.id
-
 			end
 		end
 
@@ -1288,7 +1287,7 @@ local function run(msg, matches)
 					data[tostring(msg.to.id)]['settings']['set_link'] = nil
 					save_data(_config.moderation.data, data)
 				else
-					send_large_msg(receiver, "⚠️ New Link Was Created")
+					send_large_msg(receiver, "Created a new link")
 					data[tostring(msg.to.id)]['settings']['set_link'] = result
 					save_data(_config.moderation.data, data)
 				end
@@ -1300,14 +1299,14 @@ local function run(msg, matches)
 		if matches[1] == 'setlink' and is_owner(msg) then
 			data[tostring(msg.to.id)]['settings']['set_link'] = 'waiting'
 			save_data(_config.moderation.data, data)
-			return 'Please send the new group link now'
+			return '🔰 Send Group Link'
 		end
 
 		if msg.text then
 			if msg.text:match("^(https://telegram.me/joinchat/%S+)$") and data[tostring(msg.to.id)]['settings']['set_link'] == 'waiting' and is_owner(msg) then
 				data[tostring(msg.to.id)]['settings']['set_link'] = msg.text
 				save_data(_config.moderation.data, data)
-				return "New link set"
+				return "⚠️ Link Set"
 			end
 		end
 
@@ -2044,7 +2043,7 @@ return {
 	"^[#!/]([Kk]icked)$",
     "^[#!/]([Bb]lock) (.*)",
 	"^[#!/]([Bb]lock)",
-	"^[#!/]([Tt]osuper)$",
+	"^[#!/]([Tt]sg)$",
 	"^[#!/]([Ii][Dd])$",
 	"^[#!/]([Ii][Dd]) (.*)$",
 	"^[#!/]([Kk]ickme)$",
@@ -2097,4 +2096,5 @@ return {
   run = run,
   pre_process = pre_process
 }
-
+--End supergrpup.lua
+--By @Rondoozle
