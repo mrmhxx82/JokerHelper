@@ -326,34 +326,6 @@ local function unlock_group_membermod(msg, data, target)
   end
 end
 
-local function lock_fosh_membermod(msg, data, target)
-  if not is_momod(msg) then
-    return
-  end
-  local group_fosh_lock = data[tostring(target)]['settings']['lock_fosh']
-  if group_fosh_lock == 'yes' then
-    return 'SuperGroup fosh are already locked'
-  else
-    data[tostring(target)]['settings']['lock_fosh'] = 'yes'
-    save_data(_config.moderation.data, data)
-  end
-  return 'SuperGroup fosh has been locked'
-end
-
-local function unlock_group_fosh(msg, data, target)
-  if not is_momod(msg) then
-    return
-  end
-  local group_fosh_lock = data[tostring(target)]['settings']['lock_fosh']
-  if group_fosh_lock == 'no' then
-    return 'SuperGroup fosh are not locked'
-  else
-    data[tostring(target)]['settings']['lock_fosh'] = 'no'
-    save_data(_config.moderation.data, data)
-    return 'SuperGroup fosh has been unlocked'
-  end
-end
-
 local function lock_group_rtl(msg, data, target)
   if not is_momod(msg) then
     return
@@ -591,13 +563,9 @@ end
 		if not data[tostring(target)]['settings']['lock_member'] then
 			data[tostring(target)]['settings']['lock_member'] = 'no'
 		end
-			if data[tostring(target)]['settings'] then
-		if not data[tostring(target)]['settings']['lock_fosh'] then
-			data[tostring(target)]['settings']['lock_fosh'] = 'no'
-		end
 	end
   local settings = data[tostring(target)]['settings']
-local text = "⚠️ Group Settings : \n🔰 Lock links : "..settings.lock_link.."\n🔰 Lock flood: "..settings.flood.."\n🔰 Flood sensitivity : "..NUM_MSG_MAX.."\n🔰 Lock spam: "..settings.lock_spam.."\n🔰 Lock Arabic: "..settings.lock_arabic.."\n🔰 Lock Member: "..settings.lock_member.."\n🔰 Lock RTL: "..settings.lock_rtl.."\n🔰 Lock Tgservice : "..settings.lock_tgservice.."\n🔰 Lock sticker: "..settings.lock_sticker.."\n🔰 Public: "..settings.public.."\n🔰 Strict settings: "..settings.strict.."\n🔰 Lock Fosh: "..lock_fosh\n-------------------------------------------\n⚠️ Group Model: #SuperGroup \n⚠️ Sudo Bot : @Mr_Mh58 | @FucksoN \n🔰 Chanel Id : @FUCKSON_CH "
+local text = "⚠️ Group Settings : \n🔰 Lock links : "..settings.lock_link.."\n🔰 Lock flood: "..settings.flood.."\n🔰 Flood sensitivity : "..NUM_MSG_MAX.."\n🔰 Lock spam: "..settings.lock_spam.."\n🔰 Lock Arabic: "..settings.lock_arabic.."\n🔰 Lock Member: "..settings.lock_member.."\n🔰 Lock RTL: "..settings.lock_rtl.."\n🔰 Lock Tgservice : "..settings.lock_tgservice.."\n🔰 Lock sticker: "..settings.lock_sticker.."\n🔰 Public: "..settings.public.."\n🔰 Strict settings: "..settings.strict.."\n-------------------------------------------\n⚠️ Group Model: #SuperGroup \n⚠️ Sudo Bot : @Mr_Mh58 | @FucksoN \n🔰 Chanel Id : @FUCKSON_CH "
   return text
 end
 
@@ -1686,10 +1654,6 @@ local function run(msg, matches)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked link posting ")
 				return lock_group_links(msg, data, target)
 			end
-				if matches[2] == 'fosh' then
-				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked fosh ")
-				return lock_group_fosh(msg, data, target)
-				end
 			if matches[2] == 'spam' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked spam ")
 				return lock_group_spam(msg, data, target)
@@ -1733,10 +1697,6 @@ local function run(msg, matches)
 			if matches[2] == 'links' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked link posting")
 				return unlock_group_links(msg, data, target)
-			end
-				if matches[2] == 'fosh' then
-				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked link posting")
-				return unlock_group_fosh(msg, data, target)
 			end
 			if matches[2] == 'spam' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked spam")
