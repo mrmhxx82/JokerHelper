@@ -1268,7 +1268,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return "🔰 SuperGroup Name: " ..string.gsub(msg.to.print_name, "_", " ").. "\n⚠️ SuperGroup Id: "..msg.to.id.."\n🔰 Your Id: "..msg.from.id
+				return "🔰 SuperGroup Name: " ..string.gsub(msg.to.print_name, "_", " ").. "\n⚠️ SuperGroup Id: "..msg.to.id.."\n🔰 Your Name (first Name): "..msg.from.first_name.."\n⚠️ Your Id: "..msg.from.id
 			end
 		end
 
@@ -1778,9 +1778,9 @@ local function run(msg, matches)
 				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
-					return msg_type.." has been muted"
+					return "⚠️ Mute "..msg_type.." Has Been Enabled"
 				else
-					return "SuperGroup mute "..msg_type.." is already on"
+					return "☢ Mute "..msg_type.." Is Already On"
 				end
 			end
 			if matches[2] == 'video' then
@@ -1788,9 +1788,9 @@ local function run(msg, matches)
 				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
-					return msg_type.." has been muted"
+					return "⚠️ Mute "..msg_type.." Has Been Enabled"
 				else
-					return "SuperGroup mute "..msg_type.." is already on"
+					return "☢ Mute "..msg_type.." Is Already On"
 				end
 			end
 			if matches[2] == 'gifs' then
@@ -1798,9 +1798,9 @@ local function run(msg, matches)
 				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
-					return msg_type.." have been muted"
+					return "⚠️ Mute "..msg_type.." Has Been Enabled"
 				else
-					return "SuperGroup mute "..msg_type.." is already on"
+					return "☢ Mute "..msg_type.." Is Already On"
 				end
 			end
 			if matches[2] == 'documents' then
@@ -1808,9 +1808,9 @@ local function run(msg, matches)
 				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
-					return msg_type.." have been muted"
+					return "⚠️ Mute "..msg_type.." Has Been Enabled"
 				else
-					return "SuperGroup mute "..msg_type.." is already on"
+					return "☢ Mute "..msg_type.." Is Already On"
 				end
 			end
 			if matches[2] == 'text' then
@@ -1818,9 +1818,9 @@ local function run(msg, matches)
 				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
-					return msg_type.." has been muted"
+					return "⚠️ Mute "..msg_type.." Has Been Enabled"
 				else
-					return "Mute "..msg_type.." is already on"
+					return "☢ Mute "..msg_type.." Is Already On"
 				end
 			end
 			if matches[2] == 'all' then
@@ -1828,9 +1828,9 @@ local function run(msg, matches)
 				if not is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: mute "..msg_type)
 					mute(chat_id, msg_type)
-					return "Mute "..msg_type.."  has been enabled"
+					return "⚠️ Mute "..msg_type.." Has Been Enabled"
 				else
-					return "Mute "..msg_type.." is already on"
+					return "☢ Mute "..msg_type.." Is Already On"
 				end
 			end
 		end
@@ -1841,9 +1841,9 @@ local function run(msg, matches)
 				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
-					return msg_type.." has been unmuted"
+					return "⚠️ Mute "..msg_type.." Has Been Disabled"
 				else
-					return "Mute "..msg_type.." is already off"
+					return "☢ Mute "..msg_type.." Is Already Off"
 				end
 			end
 			if matches[2] == 'photo' then
@@ -1851,9 +1851,9 @@ local function run(msg, matches)
 				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
-					return msg_type.." has been unmuted"
+					return "⚠️ Mute "..msg_type.." Has Been Disabled"
 				else
-					return "Mute "..msg_type.." is already off"
+					return "☢ Mute "..msg_type.." Is Already Off"
 				end
 			end
 			if matches[2] == 'video' then
@@ -1861,9 +1861,9 @@ local function run(msg, matches)
 				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
-					return msg_type.." has been unmuted"
+					return "⚠️ Mute "..msg_type.." Has Been Disabled"
 				else
-					return "Mute "..msg_type.." is already off"
+					return "☢ Mute "..msg_type.." Is Already Off"
 				end
 			end
 			if matches[2] == 'gifs' then
@@ -1871,9 +1871,9 @@ local function run(msg, matches)
 				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
-					return msg_type.." have been unmuted"
+					return "⚠️ Mute "..msg_type.." Has Been Disabled"
 				else
-					return "Mute "..msg_type.." is already off"
+					return "☢ Mute "..msg_type.." Is Already Off"
 				end
 			end
 			if matches[2] == 'documents' then
@@ -1881,9 +1881,9 @@ local function run(msg, matches)
 				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
-					return msg_type.." have been unmuted"
+					return "⚠️ Mute "..msg_type.." Has Been Disabled"
 				else
-					return "Mute "..msg_type.." is already off"
+					return "☢ Mute "..msg_type.." Is Already Off"
 				end
 			end
 			if matches[2] == 'text' then
@@ -1891,9 +1891,9 @@ local function run(msg, matches)
 				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute message")
 					unmute(chat_id, msg_type)
-					return msg_type.." has been unmuted"
+					return "⚠️ Mute "..msg_type.." Has Been Disabled"
 				else
-					return "Mute text is already off"
+					return "☢ Mute "..msg_type.." Is Already Off"
 				end
 			end
 			if matches[2] == 'all' then
@@ -1901,9 +1901,9 @@ local function run(msg, matches)
 				if is_muted(chat_id, msg_type..': yes') then
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] set SuperGroup to: unmute "..msg_type)
 					unmute(chat_id, msg_type)
-					return "Mute "..msg_type.." has been disabled"
+					return "⚠️ Mute "..msg_type.." Has Been Disabled"
 				else
-					return "Mute "..msg_type.." is already disabled"
+					return "☢ Mute "..msg_type.." Is Already Off"
 				end
 			end
 		end
@@ -1922,11 +1922,11 @@ local function run(msg, matches)
 				if is_muted_user(chat_id, user_id) then
 					unmute_user(chat_id, user_id)
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] removed ["..user_id.."] from the muted users list")
-					return "["..user_id.."] removed from the muted users list"
+					return "🔰 ["..user_id.."] Unmuted"
 				elseif is_owner(msg) then
 					mute_user(chat_id, user_id)
 					savelog(msg.to.id, name_log.." ["..msg.from.id.."] added ["..user_id.."] to the muted users list")
-					return "["..user_id.."] added to the muted user list"
+					return "🔰 ["..user_id.."] Muted"
 				end
 			elseif matches[1] == "muteuser" and matches[2] and not string.match(matches[2], '^%d+$') then
 				local receiver = get_receiver(msg)
@@ -2096,5 +2096,4 @@ return {
   run = run,
   pre_process = pre_process
 }
---End supergrpup.lua
---By @Rondoozle
+
