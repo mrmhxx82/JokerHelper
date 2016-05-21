@@ -36,5 +36,3 @@ return {
 }
 
 end
---by Hextor Team
--- channel : @Hextor_CH
