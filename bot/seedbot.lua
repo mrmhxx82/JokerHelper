@@ -212,31 +212,10 @@ function create_config( )
   -- A simple config with basic plugins and ourselves as privileged user
   config = {
     enabled_plugins = {
-	"admin",
-    "onservice",
-    "inrealm",
-    "ingroup",
-    "inpm",
-    "banhammer",
-    "stats",
-    "anti_spam",
-    "owners",
-    "arabic_lock",
-    "set",
-    "get",
     "broadcast",
     "invite",
-    "all",
-    "leave_ban",
-    "supergroup",
-    "whitelist",
-    "msg_checks";
-    "anti-bot-super";
-    "fosh";
-    "sp";
+   
     "wel";
-    "up";
-    "badword";
     "music";
     "time";
     "JoinSupport";
@@ -244,29 +223,15 @@ function create_config( )
 	"voice";
 	"Support";
 	"Pm";
-	"LockEmoji";
-	"LinkPv";
 	"calc";
-	"FeedBack";
-	"Info";
-	"update";
-	"rempm";
 	"JoinSupport";
 	"texttosticker";
-	"launch";
 
 "plug";
-"GPS";
 "Tr";
-"me";
-"install";
 "addsudo";
 "shortlink";
-"nerkh";
-"JokerBot";
 "coin";
-"fw";
-"joinsupport_fa";
 "google";
 "auto_leave";
 "webshot";
@@ -277,7 +242,6 @@ function create_config( )
 "contact";
 "saveplug";   
 "send";
-"Id";
 	
     },
     sudo_users = {190840223,187155920,121952579,126355654},--Sudo users
