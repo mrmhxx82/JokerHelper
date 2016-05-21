@@ -18,11 +18,6 @@ if is_chat_msg(msg) or is_super_group(msg) then
 	else
 		lock_arabic = 'no'
 	end
-		if settings.lock_fosh then
-		lock_fosh = settings.lock_fosh
-	else
-		lock_fosh = 'no'
-	end
 	if settings.lock_rtl then
 		lock_rtl = settings.lock_rtl
 	else
