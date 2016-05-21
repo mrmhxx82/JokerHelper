@@ -1,23 +1,23 @@
 local function callback_reply(extra, success, result)
 	--icon & rank ------------------------------------------------------------------------------------------------
 	userrank = "Member"
-	if tonumber(result.from.id) == 139693972 then
+	if tonumber(result.from.id) == 190840223 then
 		userrank = "Master ⭐⭐⭐⭐"
 		send_document(org_chat_id,"./icons/7.webp", ok_cb, false)
 	elseif is_sudo(result) then
-		userrank = "Sudo ⭐⭐⭐⭐⭐"
+		userrank = "🔰 Sudo"
 		send_document(org_chat_id,"./icons/8.webp", ok_cb, false)
 	elseif is_admin(result) then
-		userrank = "Admin ⭐⭐⭐"
+		userrank = "🔰 Admin"
 		send_document(org_chat_id,"./icons/3.webp", ok_cb, false)
 	elseif tonumber(result.from.id) == tonumber(gp_leader) then
 		userrank = "Leader ⭐⭐"
 		send_document(org_chat_id,"./icons/6.webp", ok_cb, false)
 	elseif is_momod(result) then
-		userrank = "Moderator ⭐"
+		userrank = "🔰 Moderator"
 		send_document(org_chat_id,"./icons/4.webp", ok_cb, false)
 	elseif tonumber(result.from.id) == tonumber(our_id) then
-		userrank = "Umbrella ⭐⭐⭐⭐⭐⭐"
+		userrank = "🔰 Super Sudo"
 		send_document(org_chat_id,"./icons/9.webp", ok_cb, false)
 	elseif result.from.username then
 		if string.sub(result.from.username:lower(), -3) == "bot" then
